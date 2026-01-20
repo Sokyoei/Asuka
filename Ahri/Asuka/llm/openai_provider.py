@@ -1,18 +1,17 @@
 from openai import AsyncOpenAI, AsyncStream, OpenAI, Stream
 from openai.types.chat import ChatCompletionChunk
 
-
-def get_messages(message: str):
-    return [{'role': 'system', 'content': 'You are a helpful assistant.'}, {'role': 'user', 'content': message}]
+from .base import BaseAsyncProvider, BaseProvider, get_messages
 
 
-class OpenAIProvider(object):
+class OpenAIProvider(BaseProvider):
 
-    def __init__(self, url: str, api_key: str, model: str):
+    def __init__(self, url: str, api_key: str, model: str, **openai_kwargs):
+        super().__init__()
         self.url = url
         self.api_key = api_key
         self.model = model
-        self.client = OpenAI(api_key=api_key, base_url=url)
+        self.client = OpenAI(api_key=api_key, base_url=url, **openai_kwargs)
 
     def text(self, message: str):
         completion = self.client.chat.completions.create(model=self.model, messages=get_messages(message))
@@ -28,13 +27,14 @@ class OpenAIProvider(object):
                 yield content
 
 
-class AsyncOpenAIProvider(object):
+class AsyncOpenAIProvider(BaseAsyncProvider):
 
-    def __init__(self, url: str, api_key: str, model: str):
+    def __init__(self, url: str, api_key: str, model: str, **openai_kwargs):
+        super().__init__()
         self.url = url
         self.api_key = api_key
         self.model = model
-        self.client = AsyncOpenAI(api_key=api_key, base_url=url)
+        self.client = AsyncOpenAI(api_key=api_key, base_url=url, **openai_kwargs)
 
     async def text(self, message: str):
         completion = await self.client.chat.completions.create(model=self.model, messages=get_messages(message))
