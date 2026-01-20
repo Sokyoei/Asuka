@@ -1,0 +1,7 @@
+services:
+  asuka:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.pytorch
+    ports:
+      - "8080:8080"
