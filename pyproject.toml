@@ -11,7 +11,7 @@ dependencies = ["numpy", "opencv-contrib-python", "loguru"]
 
 [project.optional-dependencies]
 dev = ["isort", "ruff", "black"]
-test = ["pytest"]
+test = ["pytest", "pytest-asyncio"]
 pytorch = [
     "timm", # https://github.com/rwightman/pytorch-image-models
 ]
