@@ -7,9 +7,19 @@
 - 参数曲面表示
 - 体素表示
 
+## SfM
+
+Structure from Motion「运动恢复结构」
+
+## MVS
+
+Multi-View Stereo「多视图立体视觉」
+
+[openMVS](https://github.com/cdcseacave/openMVS)
+
 ## NeRF
 
-Neural Radiance Fields 神经辐射场
+Neural Radiance Fields「神经辐射场」
 
 - [awesome-NeRF](https://github.com/awesome-NeRF/awesome-NeRF)
 - [nerf](https://github.com/bmild/nerf)
@@ -24,7 +34,7 @@ Neural Radiance Fields 神经辐射场
 
 ## 3DGS
 
-3D Gaussian Splatting 3D 高斯飞溅
+3D Gaussian Splatting「3D高斯飞溅」
 
 - [awesome-3D-gaussian-splatting](https://github.com/MrNeRF/awesome-3D-gaussian-splatting)
 - [gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting)
