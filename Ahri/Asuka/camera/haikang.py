@@ -15,7 +15,6 @@ import numpy as np
 from cv2.typing import MatLike
 from HCNetSDK.HCNetSDK import (
     C_LONG,
-    DECCBFUNWIN,
     NET_DVR_DEVICEINFO_V40,
     NET_DVR_LOCAL_SDK_PATH,
     NET_DVR_PREVIEWINFO,

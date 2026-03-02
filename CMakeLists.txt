@@ -109,8 +109,6 @@ if(OpenVINO AND OpenVINO_FOUND)
     add_subdirectory(openvino_learn)
 endif(OpenVINO AND OpenVINO_FOUND)
 
-add_subdirectory(YOLO)
-
 # config.h settings
 configure_file(
     ${PROJECT_SOURCE_DIR}/config.h.cmake
