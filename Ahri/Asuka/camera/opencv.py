@@ -10,7 +10,7 @@ from .base import AbstractCamera
 class OpenCVCamera(AbstractCamera):
     """OpenCV摄像头实现"""
 
-    def __init__(self, camera_id: int = 0, resolution: tuple = (640, 480), fps: int = 30, **kwargs):
+    def __init__(self, camera_id: int = 0, resolution: tuple[int, int] = (640, 480), fps: int = 30, **kwargs):
         """
         初始化OpenCV摄像头
 
