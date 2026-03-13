@@ -8,6 +8,7 @@ version = "0.0.1"
 authors = [{ name = "Sokyoei" }]
 license = { text = "MIT" }
 dependencies = ["numpy", "opencv-contrib-python", "loguru"]
+requires-python = ">=3.12"
 
 [project.optional-dependencies]
 dev = ["isort", "ruff", "black"]
@@ -15,6 +16,9 @@ test = ["pytest", "pytest-asyncio"]
 pytorch = [
     "timm", # https://github.com/rwightman/pytorch-image-models
 ]
+########################################################################################################################
+# Inference
+########################################################################################################################
 tensorrt = ["tensorrt", "cuda-python", "pycuda", "ploygraphy"]
 onnx = [
     "onnx",              # https://github.com/onnx/onnx
@@ -25,6 +29,9 @@ onnx = [
     # "onnx-simplifier",
     "onnxruntime-extensions", # https://github.com/microsoft/onnxruntime-extensions
 ]
+########################################################################################################################
+# Vision
+########################################################################################################################
 vit = [
     "vit-pytorch", # https://github.com/lucidrains/vit-pytorch
 ]
@@ -39,7 +46,15 @@ ocr = ["pytesseract", "pyocr", "easyocr"]
 video = [
     "moviepy", # https://github.com/Zulko/moviepy
 ]
-llm = ["modelscope", "openai", "transformers", "peft"]
+########################################################################################################################
+# LLM
+########################################################################################################################
+llm = [
+    "modelscope",   # https://github.com/modelscope/modelscope
+    "openai",       # https://github.com/openai/openai-python
+    "transformers", # https://github.com/huggingface/transformers
+    "peft",
+]
 mcp = ["mcp[cli]", "httpx"]
 agent = ["langchain", "langchain-community", "langchain-openai", "langchain-text-splitters"]
 
