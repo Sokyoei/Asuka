@@ -1,20 +1,24 @@
 cmake_minimum_required(VERSION 3.20.0)
 
-project(Asuka VERSION 0.0.1)
+project(Asuka VERSION 0.0.1 LANGUAGES C CXX)
 
 ########################################################################################################################
 # languages
 ########################################################################################################################
 set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(CheckLanguage)
 check_language(CUDA)
 if(CMAKE_CUDA_COMPILER)
     enable_language(CUDA)
     set(CMAKE_CUDA_STANDARD 20)
+    set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 endif(CMAKE_CUDA_COMPILER)
 
+# export compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 ########################################################################################################################
@@ -53,7 +57,7 @@ set(ASUKA_ROOT ${PROJECT_SOURCE_DIR})
 include_directories(
     ${PROJECT_SOURCE_DIR}
     ${PROJECT_SOURCE_DIR}/include
-    # clone https://github.com/Sokyoei/Ceceilia in Vison same level directory
+    # clone https://github.com/Sokyoei/Ceceilia in Asuka same level directory
     ${PROJECT_SOURCE_DIR}/../Ceceilia
     ${PROJECT_SOURCE_DIR}/../Ceceilia/include
 )
