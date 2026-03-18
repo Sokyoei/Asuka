@@ -2,6 +2,9 @@
 /temp/
 /Sokyoei/
 
+# ignore data dir
+/data/
+
 # ignore model file
 /models/
 *.pt
