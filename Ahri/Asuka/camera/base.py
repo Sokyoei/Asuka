@@ -25,7 +25,7 @@ class AbstractCamera(threading.Thread, ABC):
         self.name = f"{self.__class__.__name__}Thread"
 
         # control variable
-        self.running = True
+        self.running = False
         self.frame_count = 0
         self.drop_count = 0
 
@@ -39,25 +39,26 @@ class AbstractCamera(threading.Thread, ABC):
         logger.info(f"<{self.name}> 初始化完成，队列大小: {max_queue_size}")
 
     @abstractmethod
-    def __open_camera(self) -> bool:
+    def _open_camera(self) -> bool:
         """打开摄像头"""
         pass
 
     @abstractmethod
-    def __read_frame(self):
+    def _read_frame(self):
         """读取一帧"""
         pass
 
     @abstractmethod
-    def __close_camera(self):
+    def _close_camera(self):
         """关闭摄像头"""
         pass
 
     def run(self):
         """主循环，读取帧并放入队列"""
+        self.running = True
         logger.info(f"{self.name} 开始运行")
 
-        if not self.__open_camera():
+        if not self._open_camera():
             logger.error(f"{self.name} 无法打开摄像头")
             return
 
@@ -69,7 +70,7 @@ class AbstractCamera(threading.Thread, ABC):
         try:
             while self.running:
                 # 读取一帧
-                frame_data = self.__read_frame()
+                frame_data = self._read_frame()
 
                 if frame_data is None:
                     time.sleep(0.001)  # 短暂休眠避免 CPU 占用过高
@@ -110,7 +111,7 @@ class AbstractCamera(threading.Thread, ABC):
         except Exception as e:
             logger.error(f"{self.name} 错误！原因：{e}")
         finally:
-            self.__close_camera()
+            self._close_camera()
             logger.info(f"{self.name} 已停止，总帧数: {self.frame_count}")
 
     def get_frame(self, timeout: Optional[float] = None) -> Optional[Dict[str, Any]]:

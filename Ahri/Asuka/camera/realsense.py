@@ -1,14 +1,14 @@
-import threading
-
 import numpy as np
 import pyrealsense2 as rs
 from loguru import logger
 
+from .base import AbstractCamera
 
-class RealSenseCamera(threading.Thread):
 
-    def __init__(self, ffmpeg_command, width, height, fps=30):
-        super().__init__(ffmpeg_command)
+class RealSenseCamera(AbstractCamera):
+
+    def __init__(self, width, height, fps=30):
+        super().__init__()
         self.width = width
         self.height = height
         self.pipeline = None

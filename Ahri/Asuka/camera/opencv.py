@@ -1,3 +1,4 @@
+import platform
 import time
 from typing import Any, Dict, Optional
 
@@ -8,14 +9,14 @@ from .base import AbstractCamera
 
 
 class OpenCVCamera(AbstractCamera):
-    """OpenCV摄像头实现"""
+    """OpenCV 摄像头实现"""
 
     def __init__(self, camera_id: int = 0, resolution: tuple[int, int] = (640, 480), fps: int = 30, **kwargs):
         """
         初始化OpenCV摄像头
 
         Args:
-            camera_id: 摄像头ID
+            camera_id: 摄像头 ID
             resolution: 分辨率 (width, height)
             fps: 帧率
             **kwargs: 传递给基类的参数
@@ -42,10 +43,17 @@ class OpenCVCamera(AbstractCamera):
 
         logger.info(f"[OpenCVCamera] 初始化: 摄像头ID={camera_id}, 分辨率={resolution}, FPS={fps}")
 
-    def __open_camera(self) -> bool:
+    def _open_camera(self) -> bool:
         """打开OpenCV摄像头"""
         try:
-            self.cap = cv2.VideoCapture(self.camera_id)
+            if platform.system() == "Windows":
+                cap_params = cv2.CAP_DSHOW
+            elif platform.system() == "Linux":
+                cap_params = cv2.CAP_V4L2
+            else:
+                cap_params = cv2.CAP_ANY
+
+            self.cap = cv2.VideoCapture(self.camera_id, cap_params)
 
             if not self.cap.isOpened():
                 logger.info(f"[OpenCVCamera] 无法打开摄像头 {self.camera_id}")
@@ -69,17 +77,28 @@ class OpenCVCamera(AbstractCamera):
                 }
             )
 
-            logger.info("[OpenCVCamera] 摄像头已打开")
-            logger.info(f"[OpenCVCamera] 实际分辨率: {actual_width}x{actual_height}")
-            logger.info(f"[OpenCVCamera] 实际FPS: {actual_fps}")
+            # 测试读取：尝试最多5次，每次等待0.1秒
+            for i in range(5):
+                ret, frame = self.cap.read()
+                if ret and frame is not None:
+                    logger.info("[OpenCVCamera] 摄像头测试读取成功")
+                    logger.info(f"[OpenCVCamera] 实际分辨率: {actual_width}x{actual_height}")
+                    logger.info(f"[OpenCVCamera] 实际 FPS: {actual_fps}")
+                    return True
+                logger.warning(f"[OpenCVCamera] 第 {i+1} 次测试读取失败，重试...")
+                time.sleep(0.1)
 
-            return True
+            # logger.info("[OpenCVCamera] 摄像头已打开")
+            # logger.info(f"[OpenCVCamera] 实际分辨率: {actual_width}x{actual_height}")
+            # logger.info(f"[OpenCVCamera] 实际 FPS: {actual_fps}")
+
+            # return True
 
         except Exception as e:
             logger.info(f"[OpenCVCamera] 打开摄像头失败: {e}")
             return False
 
-    def __read_frame(self) -> Optional[Dict[str, Any]]:
+    def _read_frame(self) -> Optional[Dict[str, Any]]:
         """读取OpenCV摄像头帧"""
         if self.cap is None:
             return None
@@ -98,7 +117,7 @@ class OpenCVCamera(AbstractCamera):
             "camera_info": self.camera_info.copy(),
         }
 
-    def __close_camera(self):
+    def _close_camera(self):
         """关闭OpenCV摄像头"""
         if self.cap is not None:
             self.cap.release()
