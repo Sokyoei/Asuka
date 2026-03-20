@@ -58,6 +58,9 @@ llm = [
 mcp = ["mcp[cli]", "httpx"]
 agent = ["langchain", "langchain-community", "langchain-openai", "langchain-text-splitters"]
 
+[project.scripts]
+ahri_asuka_webapp = "Ahri.Asuka.web.main:main"
+
 [tool.hatch.metadata]
 allow-direct-references = true
 
