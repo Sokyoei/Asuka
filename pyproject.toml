@@ -13,9 +13,6 @@ requires-python = ">=3.12"
 [project.optional-dependencies]
 dev = ["isort", "ruff", "black"]
 test = ["pytest", "pytest-asyncio"]
-pytorch = [
-    "timm", # https://github.com/rwightman/pytorch-image-models
-]
 ########################################################################################################################
 # Inference
 ########################################################################################################################
@@ -29,11 +26,13 @@ onnx = [
     # "onnx-simplifier",
     "onnxruntime-extensions", # https://github.com/microsoft/onnxruntime-extensions
 ]
+openvino = ["openvino"]
 ########################################################################################################################
 # Vision
 ########################################################################################################################
-vit = [
+pytorch = [
     "vit-pytorch", # https://github.com/lucidrains/vit-pytorch
+    "timm",        # https://github.com/rwightman/pytorch-image-models
 ]
 mediapipe = ["mediapipe"]
 tracking = ["boxmot"]
@@ -53,6 +52,7 @@ llm = [
     "modelscope",   # https://github.com/modelscope/modelscope
     "openai",       # https://github.com/openai/openai-python
     "transformers", # https://github.com/huggingface/transformers
+    "diffusers",    # https://github.com/huggingface/diffusers
     "peft",
 ]
 mcp = ["mcp[cli]", "httpx"]
