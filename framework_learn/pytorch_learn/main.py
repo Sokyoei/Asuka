@@ -12,8 +12,8 @@ def main():
     # 定义数据转换
     transform = transforms.Compose(
         [
-            transforms.Resize((224, 224)),  # 调整图像大小以适应ResNet-18的输入尺寸
-            transforms.ToTensor(),  # 转换为Tensor
+            transforms.Resize((224, 224)),  # 调整图像大小以适应 ResNet-18 的输入尺寸
+            transforms.ToTensor(),  # 转换为 Tensor
             transforms.Lambda(lambda x: x.repeat(3, 1, 1)),  # 将单通道图像转换为三通道
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),  # 归一化
         ]
@@ -26,17 +26,18 @@ def main():
     testset = torchvision.datasets.MNIST(root=settings.DATA_DIR, train=False, download=True, transform=transform)
     testloader = DataLoader(testset, batch_size=64, shuffle=False)
 
-    # 加载预训练的ResNet-18模型
+    # 加载预训练的 ResNet-18 模型
     model = resnet18(pretrained=True)
 
     # 修改最后的全连接层
     num_ftrs = model.fc.in_features
     model.fc = nn.Linear(num_ftrs, 10)
 
-    # 将模型移动到GPU（如果可用）
+    # 将模型移动到 GPU（如果可用）
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
 
+    # 损失函数和优化器
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
@@ -48,12 +49,15 @@ def main():
         running_loss = 0.0
         for inputs, labels in trainloader:
             inputs, labels = inputs.to(device), labels.to(device)
-
+            # 梯度清零
             optimizer.zero_grad()
-
+            # 前向传播
             outputs = model(inputs)
+            # 计算损失值
             loss: Tensor = criterion(outputs, labels)
+            # 反向传播
             loss.backward()
+            # 更新参数
             optimizer.step()
 
             running_loss += loss.item()
