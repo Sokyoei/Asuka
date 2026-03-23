@@ -19,12 +19,16 @@ class Settings(BaseSettings):
     DOWNLOAD_DIR: Path = ASUKA_ROOT / "downloads"
     MODELS_DIR: Path = ASUKA_ROOT / "models"
     DATA_DIR: Path = ASUKA_ROOT / "data"
+    VIDEOS_DIR: Path = ASUKA_ROOT / "videos"
+    IMAGES_DIR: Path = ASUKA_ROOT / "images"
 
     # make dir
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    VIDEOS_DIR.mkdir(parents=True, exist_ok=True)
+    IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
     model_config = SettingsConfigDict(
         env_file=[ASUKA_ROOT / ".env", ASUKA_ROOT / ".env.dev", ASUKA_ROOT / ".env.prod"],
