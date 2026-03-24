@@ -13,6 +13,9 @@ requires-python = ">=3.12"
 [project.optional-dependencies]
 dev = ["isort", "ruff", "black"]
 test = ["pytest", "pytest-asyncio"]
+async = [
+    "asgiref", # https://github.com/django/asgiref
+]
 ########################################################################################################################
 # Inference
 ########################################################################################################################
@@ -44,6 +47,10 @@ pose = ["rtmlib"]
 ocr = ["pytesseract", "pyocr", "easyocr"]
 video = [
     "moviepy", # https://github.com/Zulko/moviepy
+    "av",      # https://github.com/PyAV-Org/PyAV
+]
+audio = [
+    "librosa", # https://github.com/librosa/librosa
 ]
 ########################################################################################################################
 # LLM
