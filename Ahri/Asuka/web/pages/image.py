@@ -24,16 +24,12 @@ class Morphology(object):
         return cv2.morphologyEx(image, morphology_type, self.kernel)
 
 
-def main():
-    st.set_page_config(page_title="image", page_icon="👠", layout="wide")
+st.set_page_config(page_title="image", page_icon="static/assets/favicon.ico", layout="wide")
 
-    st.header("image")
+st.header("image")
 
-    morphology = Morphology()
-    morphology_type = st.selectbox("形态学操作", MORPHOLOGYTPYE.keys())
-    image = cv2.imread(SOKYOEI_DATA_DIR / "Ahri/Popstar Ahri.jpg")
-    image = morphology.morphology(image, MORPHOLOGYTPYE[morphology_type])
-    st.image(image, channels="BGR")
-
-
-main()
+morphology = Morphology()
+morphology_type = st.selectbox("形态学操作", MORPHOLOGYTPYE.keys())
+image = cv2.imread(SOKYOEI_DATA_DIR / "Ahri/Popstar Ahri.jpg")
+image = morphology.morphology(image, MORPHOLOGYTPYE[morphology_type])
+st.image(image, channels="BGR")
