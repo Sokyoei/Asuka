@@ -112,3 +112,57 @@ def mouse_click(img: MatLike):
         if cv2.waitKey(1) == 27:
             break
     cv2.destroyWindow("mouse_click")
+
+
+########################################################################################################################
+# Morphology 形态学操作
+########################################################################################################################
+MORPHOLOGY_TYPES = {
+    "open": cv2.MORPH_OPEN,  # 开运算
+    "close": cv2.MORPH_CLOSE,  # 闭运算
+    "erode": cv2.MORPH_ERODE,  # 腐蚀
+    "dilate": cv2.MORPH_DILATE,  # 膨胀
+    "blackhat": cv2.MORPH_BLACKHAT,  # 黑帽
+    "tophat": cv2.MORPH_TOPHAT,  # 顶帽
+    "gradient": cv2.MORPH_GRADIENT,  # 形态学梯度
+    "hitmiss": cv2.MORPH_HITMISS,
+}
+MORPHOLOGY_SHAPES = {
+    "rect": cv2.MORPH_RECT,
+    "ellipse": cv2.MORPH_ELLIPSE,
+    "cross": cv2.MORPH_CROSS,
+    "diamond": cv2.MORPH_DIAMOND,
+}
+
+
+def morphology(
+    image: MatLike,
+    morph_type: Literal["open", "close", "erode", "dilate", "blackhat", "tophat", "gradient", "hitmiss"],
+    morph_shape: Literal["rect", "ellipse", "cross", "diamond"] = "rect",
+    morph_count: int = 1,
+    kernel_size: tuple[int, int] = (5, 5),
+) -> MatLike:
+    kernel = cv2.getStructuringElement(MORPHOLOGY_SHAPES[morph_shape], kernel_size)
+    return cv2.morphologyEx(image, MORPHOLOGY_TYPES[morph_type], kernel, iterations=morph_count)
+
+
+########################################################################################################################
+# Filter 滤波
+########################################################################################################################
+FILTER_TYPES = {
+    # 线性滤波
+    "mean": cv2.blur,  # 均值滤波
+    "box": cv2.boxFilter,  # 方框滤波
+    "gaussian": cv2.GaussianBlur,  # 高斯滤波
+    # 非线性滤波
+    "median": cv2.medianBlur,  # 中值滤波
+    "bilateral": cv2.bilateralFilter,  # 双边滤波
+}
+
+
+def filter_image(
+    image: MatLike,
+    filter_type: Literal["mean", "box", "gaussian", "median", "bilateral"],
+    ksize: tuple[int, int] = (5, 5),
+):
+    return FILTER_TYPES[filter_type](image, ksize)
