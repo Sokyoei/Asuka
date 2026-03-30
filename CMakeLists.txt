@@ -16,6 +16,7 @@ if(CMAKE_CUDA_COMPILER)
     enable_language(CUDA)
     set(CMAKE_CUDA_STANDARD 20)
     set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+    set(HAS_CUDA true)
 endif(CMAKE_CUDA_COMPILER)
 
 # export compile_commands.json

@@ -3,6 +3,9 @@
 
 #cmakedefine ASUKA_ROOT "@ASUKA_ROOT@"
 
+// CUDA support
+#cmakedefine HAS_CUDA
+
 // third libraries
 #cmakedefine USE_FMT
 #cmakedefine USE_SPDLOG
