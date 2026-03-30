@@ -32,7 +32,7 @@ onnx = [
 ]
 openvino = ["openvino"]
 ########################################################################################################################
-# Vision
+# Deep Learning
 ########################################################################################################################
 pytorch = [
     "vit-pytorch", # https://github.com/lucidrains/vit-pytorch
@@ -52,6 +52,10 @@ video = [
 ]
 audio = [
     "librosa", # https://github.com/librosa/librosa
+]
+# tensorflow/keras
+tensorflow = [
+    "keras_cv", # https://github.com/keras-team/keras-cv
 ]
 ########################################################################################################################
 # LLM
