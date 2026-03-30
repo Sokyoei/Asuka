@@ -4,8 +4,8 @@ from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 
 from Ahri.Asuka.config.config import settings
-from Ahri.Asuka.models import LeNet5
 from Ahri.Asuka.utils import DEVICE
+from Ahri.Asuka.vision.models import LeNet5
 
 EPOCHS = 10
 BATCH_SIZE = 64

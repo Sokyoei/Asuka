@@ -4,7 +4,6 @@ import numpy as np
 import torch
 from torch import Tensor, nn
 
-
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # 超参数
@@ -93,7 +92,7 @@ def train():
     for i in range(EPOCHS):
         optimizer.zero_grad()
         input_seq.to(DEVICE)
-        y_pred, hidden_pred = net(input_seq)
+        y_pred, _hidden_pred = net(input_seq)
         loss_value: Tensor = loss(y_pred, target_seq.view(-1).long())
         loss_value.backward()
         optimizer.step()
@@ -121,7 +120,7 @@ def sample(model: nn.Module, out_len, start='hey'):
     chars = [ch for ch in start]
     size = out_len - len(chars)
     for ii in range(size):
-        char, h = predict(model, chars)
+        char, _h = predict(model, chars)
         chars.append(char)
 
     return ''.join(chars)

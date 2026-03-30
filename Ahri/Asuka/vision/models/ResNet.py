@@ -1,3 +1,4 @@
+# ruff: noqa: F401
 import torch
 from torch import nn
 from torchvision import datasets, models
@@ -7,7 +8,7 @@ EPOCHS = 10
 
 
 def main():
-    net = models.resnet50()
+    net = models.resnet50()  # noqa: F841
 
 
 if __name__ == "__main__":

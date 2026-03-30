@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from Ahri.Asuka.models import SelfAttention
+from Ahri.Asuka.nlp.models import SelfAttention
 
 
 def test_SelfAttention():
@@ -12,4 +12,4 @@ def test_SelfAttention():
 
 
 if __name__ == "__main__":
-    pytest.main(["-s", __file__])
+    pytest.main([__file__, "-v"])

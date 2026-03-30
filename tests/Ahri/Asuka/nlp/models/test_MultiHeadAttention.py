@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from Ahri.Asuka.models.MultiHeadAttention import MultiHeadAttention
+from Ahri.Asuka.nlp.models import MultiHeadAttention
 
 
 def test_MultiHeadAttention():
@@ -18,4 +18,4 @@ def test_MultiHeadAttention():
 
 
 if __name__ == '__main__':
-    pytest.main([__file__])
+    pytest.main([__file__, "-v"])
