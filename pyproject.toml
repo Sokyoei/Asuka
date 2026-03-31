@@ -55,7 +55,9 @@ audio = [
 ]
 # tensorflow/keras
 tensorflow = [
-    "keras_cv", # https://github.com/keras-team/keras-cv
+    "keras_cv",            # https://github.com/keras-team/keras-cv
+    "types-tensorflow",    # https://github.com/python/typeshed"
+    "tensorflow-datasets", # https://github.com/tensorflow/datasets
 ]
 ########################################################################################################################
 # LLM

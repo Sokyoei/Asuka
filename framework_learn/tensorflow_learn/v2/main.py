@@ -41,6 +41,7 @@ base_model: models.Model = applications.MobileNetV2(
     pooling="avg",
 )
 base_model.trainable = False  # 冻结权重，仅训练最后一层分类的全连接层
+# 1. Squential API
 model = models.Sequential(
     [
         base_model,
@@ -49,7 +50,11 @@ model = models.Sequential(
         layers.Dense(NUM_CLASSES, activation="softmax"),
     ]
 )
-
+# 2. Keras 函数式 API
+# head = layers.Dense(256, activation="relu")(base_model.output)
+# head = layers.Dropout(0.5)(head)
+# head = layers.Dense(NUM_CLASSES, activation="softmax")(head)
+# model = models.Model(inputs=base_model.input, outputs=head)
 
 model.compile(optimizer=optimizers.Adam(learning_rate=LR), loss=losses.categorical_crossentropy, metrics=["accuracy"])
 tensorboard_callback = callbacks.TensorBoard(log_dir=settings.LOG_DIR / "tensorboard", histogram_freq=1)
