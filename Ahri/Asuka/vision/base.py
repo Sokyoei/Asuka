@@ -10,7 +10,8 @@ class AbstractVisionModel(ABC):
     def inference(self, image: MatLike):
         raise NotImplementedError
 
-    infer = inference
+    def infer(self, image: MatLike):
+        return self.inference(image)
 
     def plot(self, data: Any, image: MatLike) -> MatLike:
         return image
