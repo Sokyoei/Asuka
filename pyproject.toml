@@ -7,20 +7,48 @@ name = "Ahri.Asuka"
 version = "0.0.1"
 authors = [{ name = "Sokyoei" }]
 license = { text = "MIT" }
-dependencies = ["numpy", "opencv-contrib-python", "loguru"]
+dependencies = [
+    # data analysis
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "polars",
+    "pandas",
+    # vision
+    "pillow",
+    "opencv-contrib-python",
+    "scikit-image",
+    # utils
+    "loguru",            # https://github.com/Delgan/loguru
+    "pydantic-settings", # https://github.com/pydantic/pydantic-settings
+    # pytorch
+    "torch",
+    "torchvision",
+    "torchaudio",
+    # async
+    "asgiref", # https://github.com/django/asgiref
+]
 requires-python = ">=3.12"
 
 [project.optional-dependencies]
-dev = ["isort", "ruff", "black"]
-test = ["pytest", "pytest-asyncio"]
-async = [
-    "asgiref", # https://github.com/django/asgiref
-]
 webapp = ["streamlit", "streamlit-webrtc"]
+video = [
+    "moviepy", # https://github.com/Zulko/moviepy
+    "av",      # https://github.com/PyAV-Org/PyAV
+]
+audio = [
+    "librosa", # https://github.com/librosa/librosa
+]
 ########################################################################################################################
 # Inference
 ########################################################################################################################
-tensorrt = ["tensorrt", "cuda-python", "pycuda", "ploygraphy"]
+tensorrt = [
+    # "tensorrt", # Lastest release version # https://developer.nvidia.com/tensorrt https://github.com/NVIDIA/TensorRT
+    "tensorrt-cu12",
+    "cuda-python<13",
+    "pycuda",
+    "polygraphy",
+]
 onnx = [
     "onnx",              # https://github.com/onnx/onnx
     "onnx-graphsurgeon", # in TensorRT or `pip install onnx_graphsurgeon --index-url https://pypi.ngc.nvidia.com`
@@ -34,27 +62,23 @@ openvino = ["openvino"]
 ########################################################################################################################
 # Deep Learning
 ########################################################################################################################
-pytorch = [
-    "vit-pytorch", # https://github.com/lucidrains/vit-pytorch
-    "timm",        # https://github.com/rwightman/pytorch-image-models
-]
-mediapipe = ["mediapipe"]
-tracking = ["boxmot"]
-opencv = [
+vision = [
+    "vit-pytorch",           # https://github.com/lucidrains/vit-pytorch
+    "boxmot",
+    "rtmlib",
+    "pytesseract",
+    "pyocr",
+    "easyocr",
     "imutils",               # https://github.com/PyImageSearch/imutils
-    "cv2_enumerate_cameras", # https://github.com/chinaheyu/cv2_enumerate_cameras
+    "cv2-enumerate-cameras", # https://github.com/lukehugh/cv2_enumerate_cameras
 ]
-pose = ["rtmlib"]
-ocr = ["pytesseract", "pyocr", "easyocr"]
-video = [
-    "moviepy", # https://github.com/Zulko/moviepy
-    "av",      # https://github.com/PyAV-Org/PyAV
-]
-audio = [
-    "librosa", # https://github.com/librosa/librosa
-]
+stereo = ["open3d", "plyfile"]
+nlp = ["torchtext"]
+mediapipe = ["mediapipe"]
 # tensorflow/keras
 tensorflow = [
+    "keras",
+    "tensorflow",
     "keras_cv",            # https://github.com/keras-team/keras-cv
     "types-tensorflow",    # https://github.com/python/typeshed"
     "tensorflow-datasets", # https://github.com/tensorflow/datasets
@@ -63,10 +87,16 @@ tensorflow = [
 # LLM
 ########################################################################################################################
 llm = [
-    "modelscope",   # https://github.com/modelscope/modelscope
-    "openai",       # https://github.com/openai/openai-python
+    # download
+    "modelscope",      # https://github.com/modelscope/modelscope
+    "huggingface_hub", # https://github.com/huggingface/huggingface_hub
+    # api
+    "openai", # https://github.com/openai/openai-python
+    # models
     "transformers", # https://github.com/huggingface/transformers
     "diffusers",    # https://github.com/huggingface/diffusers
+    "timm",         # https://github.com/rwightman/pytorch-image-models
+    # finetuning
     "peft",
 ]
 mcp = ["mcp[cli]", "httpx"]
@@ -75,11 +105,38 @@ agent = ["langchain", "langchain-community", "langchain-openai", "langchain-text
 [project.scripts]
 ahri_asuka_webapp = "Ahri.Asuka.web.main:main"
 
+[dependency-groups]
+build = ["build", "hatch"]
+dev = ["isort", "ruff", "black", "pre-commit"]
+test = ["pytest", "pytest-asyncio", "tox", "coverage"]
+torchtools = [
+    "torchinfo", # https://github.com/TylerYep/torchinfo
+    "torchview", # https://github.com/mert-kurttutan/torchview
+]
+
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["Ahri"]
+
+[tool.uv]
+default-groups = ["dev", "test"]
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "nvidia"
+url = "https://pypi.ngc.nvidia.com"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+torchaudio = { index = "pytorch" }
 
 [tool.isort]
 line_length = 120

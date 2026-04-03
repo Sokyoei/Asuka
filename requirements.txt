@@ -1,12 +1,43 @@
+# data analysis
 numpy
+scipy
+matplotlib
+polars
+pandas
+# vision
+pillow
+opencv-contrib-python
+scikit-image
+albumentationsx
+# utils
+loguru            # https://github.com/Delgan/loguru
+pydantic-settings # https://github.com/pydantic/pydantic-settings
+# pytorch
 torch
 torchvision
-albumentations
-opencv-contrib-python
-
-# Vision3D
+torchaudio
+# async
+asgiref # https://github.com/django/asgiref
+########################################################################################################################
+# Deep Learning
+########################################################################################################################
+# stereo
 open3d
 plyfile
-
+# nlp
 jieba
 torchtext
+########################################################################################################################
+## LLM
+########################################################################################################################
+# download
+modelscope      # https://github.com/modelscope/modelscope
+huggingface_hub # https://github.com/huggingface/huggingface_hub
+# api
+openai # https://github.com/openai/openai-python
+# models
+transformers # https://github.com/huggingface/transformers
+diffusers    # https://github.com/huggingface/diffusers
+timm         # https://github.com/rwightman/pytorch-image-models
+# finetuning
+peft
