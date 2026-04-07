@@ -8,3 +8,7 @@ if sokyoei_data_dir:
     SOKYOEI_DATA_DIR = Path(sokyoei_data_dir)
 else:
     raise RuntimeError("Please install https://github.com/Sokyoei/data")
+
+from Ahri.Asuka.logger import init_logging  # noqa: E402
+
+init_logging()
