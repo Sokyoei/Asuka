@@ -2,12 +2,12 @@ import pytest
 import torch
 
 from Ahri.Asuka.utils import DEVICE
-from Ahri.Asuka.vision.models import resnet18, resnet34, resnet50, resnet101, resnet152
+from Ahri.Asuka.vision.models import vgg11, vgg13, vgg16, vgg19
 
 
-def test_ResNet():
-    for resnet in [resnet18, resnet34, resnet50, resnet101, resnet152]:
-        model = resnet().to(DEVICE)
+def test_VGG():
+    for vgg in [vgg11, vgg13, vgg16, vgg19]:
+        model = vgg().to(DEVICE)
         model.eval()
 
         x = torch.randn(1, 3, 224, 224, device=DEVICE)

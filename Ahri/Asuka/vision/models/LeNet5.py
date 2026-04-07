@@ -3,7 +3,7 @@ from torch import Tensor, nn
 
 class LeNet5(nn.Module):
 
-    def __init__(self, n_classes: int) -> None:
+    def __init__(self, n_classes: int = 1000) -> None:
         super().__init__()
         self.conv1 = nn.Sequential(nn.Conv2d(1, 6, 5, 1), nn.BatchNorm2d(6), nn.ReLU())
         self.conv2 = nn.Sequential(nn.Conv2d(6, 16, 5, 1), nn.BatchNorm2d(16), nn.ReLU())
@@ -12,7 +12,7 @@ class LeNet5(nn.Module):
         self.fc2 = nn.Sequential(nn.Linear(120, 84), nn.ReLU())
         self.fc3 = nn.Linear(84, n_classes)
 
-    def forward(self, x):
+    def forward(self, x: Tensor) -> Tensor:
         # [N, 1, 32, 32]
         x1 = self.conv1(x)
         # [N, 6, 28, 28]
