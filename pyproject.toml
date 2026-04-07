@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "Ahri.Asuka"
-version = "0.0.1"
+dynamic = ["version"]
 authors = [{ name = "Sokyoei" }]
 license = { text = "MIT" }
 dependencies = [
@@ -120,8 +120,13 @@ allow-direct-references = true
 [tool.hatch.build.targets.wheel]
 packages = ["Ahri"]
 
+[tool.hatch.version]
+path = "Ahri/Asuka/version.py"
+pattern = '__version__ = "(?P<version>.*)"'
+
 [tool.uv]
 default-groups = ["dev", "test"]
+index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 
 [[tool.uv.index]]
 name = "pytorch"
