@@ -7,13 +7,13 @@
 ```log
 发生异常: RuntimeError
 Frame didn't arrive within 5000
-  File "/media/supervisor/windowsd/Code/healthpose-vitpose/health/camera.py", line 44, in update
+  File "/home/Ahri/Sokyoei/Asuka/realsense_learn/real_distance.py", line 23, in update
     frames = self.pipeline.wait_for_frames()
-  File "/home/supervisor/miniconda3/envs/mediapipe/lib/python3.10/threading.py", line 953, in run
+  File "/home/Ahri/miniconda3/envs/Sokyoei/lib/python3.10/threading.py", line 953, in run
     self._target(*self._args, **self._kwargs)
-  File "/home/supervisor/miniconda3/envs/mediapipe/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+  File "/home/Ahri/miniconda3/envs/Sokyoei/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
     self.run()
-  File "/home/supervisor/miniconda3/envs/mediapipe/lib/python3.10/threading.py", line 973, in _bootstrap
+  File "/home/Ahri/miniconda3/envs/Sokyoei/lib/python3.10/threading.py", line 973, in _bootstrap
     self._bootstrap_inner()
 RuntimeError: Frame didn't arrive within 5000
 ```
@@ -28,10 +28,4 @@ RuntimeError: Frame didn't arrive within 5000
     profile = pipeline.start(config)
     device = profile.get_device()
     device.hardware_reset()
-```
-
-### 2.
-
-```log
-
 ```
