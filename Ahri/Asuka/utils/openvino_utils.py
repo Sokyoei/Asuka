@@ -5,14 +5,18 @@ OpenVINO Utils
 from __future__ import annotations
 
 import os
-from abc import ABC, abstractmethod
+from abc import ABC
 
 import cv2
 import numpy as np
 import openvino as ov
 from cv2.typing import MatLike
 from openvino.preprocess import PrePostProcessor
-from openvino.runtime.utils.data_helpers.wrappers import OVDict
+
+if int(ov.__version__.split(".")[0]) >= 2026:
+    from openvino.utils.data_helpers.wrappers import OVDict
+else:
+    from openvino.runtime.utils.data_helpers.wrappers import OVDict
 
 
 class OpenVINOModel(ABC):
@@ -35,8 +39,6 @@ class OpenVINOModel(ABC):
         image = cv2.imread("")
         input_tensor = np.expand_dims(image, 0)
 
-        _, h, w, _ = input_tensor.shape
-
         ppp.input().tensor().set_shape(input_tensor.shape).set_element_type(ov.Type.u8).set_layout(ov.Layout('NHWC'))
         ppp.input().preprocess().resize(ov.preprocess.ResizeAlgorithm.RESIZE_LINEAR)
         ppp.input().model().set_layout(ov.Layout('NCHW'))
@@ -50,10 +52,8 @@ class OpenVINOModel(ABC):
         results = self.compiled_model.infer_new_request({0: input_tensor})
         return results
 
-    @abstractmethod
     def preprocess(self):
-        pass
+        raise NotImplementedError
 
-    @abstractmethod
     def postprocess(self):
-        pass
+        raise NotImplementedError

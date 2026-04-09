@@ -1,5 +1,9 @@
+"""
+TensorRT Utils
+"""
+
 import os
-from abc import ABC, abstractmethod
+from abc import ABC
 
 import numpy as np
 import pycuda.autoinit  # noqa
@@ -10,7 +14,7 @@ from numpy.typing import NDArray
 
 def _get_tensorrt_version():
     """获取 TensorRT 版本号"""
-    return (int(i) for i in trt.__version__.split("."))
+    return tuple(int(i) for i in trt.__version__.split(".")[:3])
 
 
 TENSORRT_MAJOR, TENSORRT_MINOR, TENSORRT_PATCH = _get_tensorrt_version()
@@ -91,10 +95,8 @@ class TensorRTModel(ABC):
 
         return output_data
 
-    # @abstractmethod
     def preprocess(self):
         raise NotImplementedError
 
-    # @abstractmethod
     def postprocess(self):
         raise NotImplementedError
