@@ -2,8 +2,6 @@ from typing import Literal
 
 from torch import Tensor, nn
 
-from .activation import ACTIVATIONS
-
 
 class Conv(nn.Module):
     """
@@ -26,8 +24,9 @@ class Conv(nn.Module):
         padding_mode: Literal["zeros", "reflect", "replicate", "circular"] = "zeros",
         device=None,
         dtype=None,
-        activation: str = "relu",
-        is_in: bool = False,
+        norm: type[nn.Module] | None = nn.BatchNorm2d,
+        activation: type[nn.Module] | None = nn.ReLU,
+        inplace: bool | None = True,
     ):
         super(Conv, self).__init__()
         self.conv = nn.Conv2d(
@@ -43,14 +42,22 @@ class Conv(nn.Module):
             device=device,
             dtype=dtype,
         )
-        if is_in:
-            self.bn = nn.InstanceNorm2d(num_features=out_channels)
-        else:
-            self.bn = nn.BatchNorm2d(num_features=out_channels)
-        self.activation = ACTIVATIONS[activation]
+        if norm is not None:
+            self.norm = norm(num_features=out_channels, device=device, dtype=dtype)
+        if activation is None:
+            activation = nn.Identity
+        # 检查激活函数是否支持 inplace 参数
+        params = {}
+        if inplace and "inplace" in activation.__init__.__code__.co_varnames:
+            params["inplace"] = inplace
+        self.activation = activation(**params)
 
     def forward(self, x: Tensor) -> Tensor:
-        return self.activation(self.bn(self.conv(x)))
+        x = self.conv(x)
+        if hasattr(self, "norm"):
+            x = self.norm(x)
+        x = self.activation(x)
+        return x
 
 
 class DWConv(Conv):
@@ -63,8 +70,7 @@ class DWConv(Conv):
 
     def __init__(
         self,
-        in_channels: int,
-        out_channels: int,
+        channels: int,
         kernel_size: int | tuple[int, int],
         stride: int | tuple[int, int] = 1,
         padding=0,
@@ -73,22 +79,25 @@ class DWConv(Conv):
         padding_mode="zeros",
         device=None,
         dtype=None,
-        activation: str = "relu",
+        norm: type[nn.Module] | None = nn.BatchNorm2d,
+        activation: type[nn.Module] | None = nn.ReLU,
+        inplace: bool | None = True,
     ):
-        assert in_channels == out_channels, "in_channels should be equal to out_channels"
         super(DWConv, self).__init__(
-            in_channels=in_channels,
-            out_channels=out_channels,
+            in_channels=channels,
+            out_channels=channels,
             kernel_size=kernel_size,
             stride=stride,
             padding=padding,
             dilation=dilation,
-            groups=in_channels,
+            groups=channels,
             bias=bias,
             padding_mode=padding_mode,
             device=device,
             dtype=dtype,
+            norm=norm,
             activation=activation,
+            inplace=inplace,
         )
 
 
@@ -112,7 +121,9 @@ class PWConv(Conv):
         padding_mode="zeros",
         device=None,
         dtype=None,
-        activation: str = "relu",
+        norm: type[nn.Module] | None = nn.BatchNorm2d,
+        activation: type[nn.Module] | None = nn.ReLU,
+        inplace: bool | None = True,
     ):
         super(PWConv, self).__init__(
             in_channels=in_channels,
@@ -126,7 +137,9 @@ class PWConv(Conv):
             padding_mode=padding_mode,
             device=device,
             dtype=dtype,
+            norm=norm,
             activation=activation,
+            inplace=inplace,
         )
 
 
@@ -137,7 +150,7 @@ class DSConv(nn.Module):
     Examples:
         >>> import torch
         >>> x = torch.randn(2, 3, 32, 32)
-        >>> model = DSConv(3, 26, 3, 1, 1, activation="relu")
+        >>> model = DSConv(3, 26, 3, 1, 1)
         >>> out = model(x)
         >>> out.shape
         torch.Size([2, 26, 32, 32])
@@ -155,12 +168,13 @@ class DSConv(nn.Module):
         padding_mode="zeros",
         device=None,
         dtype=None,
-        activation: str = "relu",
+        norm: type[nn.Module] | None = nn.BatchNorm2d,
+        activation: type[nn.Module] | None = nn.ReLU,
+        inplace: bool | None = True,
     ):
         super(DSConv, self).__init__()
         self.dw = DWConv(
-            in_channels=in_channels,
-            out_channels=in_channels,
+            channels=in_channels,
             kernel_size=kernel_size,
             stride=stride,
             padding=padding,
@@ -169,7 +183,9 @@ class DSConv(nn.Module):
             padding_mode=padding_mode,
             device=device,
             dtype=dtype,
+            norm=norm,
             activation=activation,
+            inplace=inplace,
         )
         self.pw = PWConv(
             in_channels=in_channels,
@@ -177,7 +193,9 @@ class DSConv(nn.Module):
             bias=bias,
             device=device,
             dtype=dtype,
+            norm=norm,
             activation=activation,
+            inplace=inplace,
         )
 
     def forward(self, x: Tensor) -> Tensor:
