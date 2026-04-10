@@ -27,6 +27,7 @@ class Conv(nn.Module):
         device=None,
         dtype=None,
         activation: str = "relu",
+        is_in: bool = False,
     ):
         super(Conv, self).__init__()
         self.conv = nn.Conv2d(
@@ -42,7 +43,10 @@ class Conv(nn.Module):
             device=device,
             dtype=dtype,
         )
-        self.bn = nn.BatchNorm2d(num_features=out_channels)
+        if is_in:
+            self.bn = nn.InstanceNorm2d(num_features=out_channels)
+        else:
+            self.bn = nn.BatchNorm2d(num_features=out_channels)
         self.activation = ACTIVATIONS[activation]
 
     def forward(self, x: Tensor) -> Tensor:

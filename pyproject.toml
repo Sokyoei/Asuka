@@ -158,6 +158,8 @@ skip-magic-trailing-comma = true
 
 [tool.ruff]
 line-length = 120
+
+[tool.ruff.lint]
 select = [
     "F",   # pyflakes
     "E",   # pycodestyle error
@@ -178,8 +180,6 @@ ignore = [
     "RUF012", # mutable-class-default
 ]
 # ignore-init-module-imports = true
+pydocstyle = { convention = "google" }
 
-[tool.ruff.isort]
-
-[tool.ruff.pydocstyle]
-convention = "google"
+[tool.ruff.lint.isort]

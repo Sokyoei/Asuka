@@ -31,3 +31,7 @@ class LeNet5(nn.Module):
         x7 = self.fc3(x6)
         # [N, n_classes]
         return x7
+
+
+def lenet5(num_classes: int = 1000):
+    return LeNet5(num_classes)
