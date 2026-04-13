@@ -1,3 +1,11 @@
+"""
+ResNet 2015
+
+SeeAlso:
+- [torchvision](https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py)
+- [timm](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/resnet.py)
+"""
+
 import torch
 import torch.nn.functional as F
 from torch import Tensor, nn

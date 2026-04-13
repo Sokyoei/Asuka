@@ -1,3 +1,7 @@
+"""
+LeNet-5 1998
+"""
+
 from torch import Tensor, nn
 
 

@@ -1,3 +1,10 @@
+"""
+GoogLeNet 2014
+
+SeeAlso:
+- [torchvision](https://github.com/pytorch/vision/blob/main/torchvision/models/googlenet.py)
+"""
+
 import torch
 from torch import Tensor, nn
 

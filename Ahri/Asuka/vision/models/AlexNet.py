@@ -1,3 +1,10 @@
+"""
+AlexNet 2012
+
+SeeAlso:
+- [torchvision](https://github.com/pytorch/vision/blob/main/torchvision/models/alexnet.py)
+"""
+
 import torch.nn.functional as F
 from torch import Tensor, nn
 
