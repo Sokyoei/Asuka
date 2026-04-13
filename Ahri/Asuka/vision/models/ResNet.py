@@ -2,8 +2,8 @@
 ResNet 2015
 
 SeeAlso:
-- [torchvision](https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py)
-- [timm](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/resnet.py)
+- [torchvision.models.resnet](https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py)
+- [timm.models.resnet](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/resnet.py)
 """
 
 import torch

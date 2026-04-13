@@ -158,9 +158,13 @@ skip-magic-trailing-comma = true
 
 [tool.ruff]
 line-length = 120
+indent-width = 4
+target-version = "py312"
 
 [tool.ruff.lint]
+# https://docs.astral.sh/ruff/rules/
 select = [
+    "UP",  # pyupgrade
     "F",   # pyflakes
     "E",   # pycodestyle error
     "W",   # pycodestyle warning
@@ -171,15 +175,31 @@ select = [
     "PD",  # pandas-vet
     "NPY", # numpy specific rules
     "RUF", # ruff specific rules
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
 ]
 ignore = [
     "E501",   # https://docs.astral.sh/ruff/rules/line-too-long/
     "RUF001", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-string/
     "RUF002", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-docstring/
     "RUF003", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-comment/
-    "RUF012", # mutable-class-default
+    "RUF012", # https://docs.astral.sh/ruff/rules/mutable-class-default/
+    "UP008",  # https://docs.astral.sh/ruff/rules/super-call-with-parameters/
 ]
 # ignore-init-module-imports = true
 pydocstyle = { convention = "google" }
 
 [tool.ruff.lint.isort]
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 120
+indent-style = "space"
+line-ending = "lf"
+quote-style = "double"
+skip-magic-trailing-comma = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]

@@ -1,3 +1,10 @@
+"""
+MobileNet
+
+SeeAlso:
+- [torchvision.models.mobilenet](https://github.com/pytorch/vision/blob/main/torchvision/models/mobilenet.py)
+"""
+
 import torch
 from torch import nn
 

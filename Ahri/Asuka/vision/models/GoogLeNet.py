@@ -2,7 +2,7 @@
 GoogLeNet 2014
 
 SeeAlso:
-- [torchvision](https://github.com/pytorch/vision/blob/main/torchvision/models/googlenet.py)
+- [torchvision.models.googlenet](https://github.com/pytorch/vision/blob/main/torchvision/models/googlenet.py)
 """
 
 import torch

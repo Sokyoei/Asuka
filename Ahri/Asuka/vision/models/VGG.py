@@ -2,8 +2,8 @@
 VGG 2014
 
 SeeAlso:
-- [torchvision](https://github.com/pytorch/vision/blob/main/torchvision/models/vgg.py)
-- [timm](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/vgg.py)
+- [torchvision.models.vgg](https://github.com/pytorch/vision/blob/main/torchvision/models/vgg.py)
+- [timm.models.vgg](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/vgg.py)
 """
 
 from typing import Literal
