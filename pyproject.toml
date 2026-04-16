@@ -19,83 +19,54 @@ dependencies = [
     "opencv-contrib-python",
     "scikit-image",
     # utils
-    "loguru",            # https://github.com/Delgan/loguru
-    "pydantic-settings", # https://github.com/pydantic/pydantic-settings
+    "loguru",
+    "pydantic-settings",
     # pytorch
     "torch",
     "torchvision",
     "torchaudio",
     # async
-    "asgiref", # https://github.com/django/asgiref
+    "asgiref",
 ]
 requires-python = ">=3.12"
 
 [project.optional-dependencies]
 webapp = ["streamlit", "streamlit-webrtc"]
-video = [
-    "moviepy", # https://github.com/Zulko/moviepy
-    "av",      # https://github.com/PyAV-Org/PyAV
-]
-audio = [
-    "librosa", # https://github.com/librosa/librosa
-]
-########################################################################################################################
+video = ["moviepy", "av"]
+audio = ["librosa"]
 # Inference
-########################################################################################################################
 tensorrt = [
-    # "tensorrt", # Lastest release version # https://developer.nvidia.com/tensorrt https://github.com/NVIDIA/TensorRT
+    # "tensorrt", # Lastest release version
     "tensorrt-cu12",
     "cuda-python<13",
     "pycuda",
     "polygraphy",
 ]
 onnx = [
-    "onnx",              # https://github.com/onnx/onnx
-    "onnx-graphsurgeon", # in TensorRT or `pip install onnx_graphsurgeon --index-url https://pypi.ngc.nvidia.com`
-    "onnxruntime-gpu",   # https://github.com/microsoft/onnxruntime or onnxruntime(cpu ver.)
-    # "onnxruntime",
-    "onnxsim", # https://github.com/daquexian/onnx-simplifier same as `onnx-simplifier`
-    # "onnx-simplifier",
-    "onnxruntime-extensions", # https://github.com/microsoft/onnxruntime-extensions
+    "onnx",
+    "onnx-graphsurgeon",
+    "onnxruntime-gpu",        # or "onnxruntime",
+    "onnxsim",                # or "onnx-simplifier",
+    "onnxruntime-extensions",
 ]
 openvino = ["openvino"]
-########################################################################################################################
 # Deep Learning
-########################################################################################################################
-vision = [
-    "vit-pytorch",           # https://github.com/lucidrains/vit-pytorch
-    "boxmot",
-    "rtmlib",
-    "pytesseract",
-    "pyocr",
-    "easyocr",
-    "imutils",               # https://github.com/PyImageSearch/imutils
-    "cv2-enumerate-cameras", # https://github.com/lukehugh/cv2_enumerate_cameras
-]
+vision = ["vit-pytorch", "boxmot", "rtmlib", "pytesseract", "pyocr", "easyocr", "imutils", "cv2-enumerate-cameras"]
 stereo = ["open3d", "plyfile"]
 nlp = ["torchtext"]
 mediapipe = ["mediapipe"]
-# tensorflow/keras
-tensorflow = [
-    "keras",
-    "tensorflow",
-    "keras_cv",            # https://github.com/keras-team/keras-cv
-    "types-tensorflow",    # https://github.com/python/typeshed"
-    "tensorflow-datasets", # https://github.com/tensorflow/datasets
-]
-########################################################################################################################
+tensorflow = ["keras", "tensorflow", "keras_cv", "types-tensorflow", "tensorflow-datasets"]
 # LLM
-########################################################################################################################
 llm = [
     # download
-    "modelscope",      # https://github.com/modelscope/modelscope
-    "huggingface_hub", # https://github.com/huggingface/huggingface_hub
+    "modelscope",
+    "huggingface_hub",
     # api
-    "openai", # https://github.com/openai/openai-python
+    "openai",
     # models
-    "transformers", # https://github.com/huggingface/transformers
-    "diffusers",    # https://github.com/huggingface/diffusers
-    "timm",         # https://github.com/rwightman/pytorch-image-models
+    "transformers",
+    "diffusers",
+    "timm",
     # finetuning
     "peft",
 ]
@@ -109,10 +80,7 @@ ahri_asuka_webapp = "Ahri.Asuka.web.main:main"
 build = ["build", "hatch"]
 dev = ["isort", "ruff", "black", "pre-commit"]
 test = ["pytest", "pytest-asyncio", "tox", "coverage"]
-torchtools = [
-    "torchinfo", # https://github.com/TylerYep/torchinfo
-    "torchview", # https://github.com/mert-kurttutan/torchview
-]
+torchtools = ["torchinfo", "torchview"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
