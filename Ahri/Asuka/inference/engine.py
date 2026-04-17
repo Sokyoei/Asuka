@@ -2,9 +2,10 @@ from enum import IntEnum
 
 
 class InferenceType(IntEnum):
-    tensorrt = 0
-    openvino = 1
-    onnxruntime = 2
+    TensorRT = 0
+    OpenVINO = 1
+    ONNXRuntime = 2
+    OpenCV_DNN = 3
 
 
 class InferenceEngine:

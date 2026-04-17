@@ -1,3 +1,4 @@
+#!/bin/bash
 # ultralytics cil
 
 # predict
@@ -5,4 +6,4 @@
 
 # export
 # yolo export model=yolov8s-pose.pt format=onnx opset=11 simplify=True
-yolo export model=yolov8s-pose.pt format=engine device=0
+yolo export model=../models/yolo26l.pt format=engine device=0 dynamic=True simplify=True half=True imgsz=640 batch=32
