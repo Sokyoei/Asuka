@@ -2,6 +2,7 @@
 SqueezeNet
 
 SeeAlso:
+- [SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size](https://arxiv.org/abs/1602.07360)
 - [torchvision.models.squeezenet](https://github.com/pytorch/vision/blob/main/torchvision/models/squeezenet.py)
 """
 

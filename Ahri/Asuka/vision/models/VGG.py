@@ -2,6 +2,7 @@
 VGG 2014
 
 SeeAlso:
+- [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)
 - [torchvision.models.vgg](https://github.com/pytorch/vision/blob/main/torchvision/models/vgg.py)
 - [timm.models.vgg](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/vgg.py)
 """

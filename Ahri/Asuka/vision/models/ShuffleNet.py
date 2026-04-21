@@ -2,6 +2,7 @@
 ShuffleNet
 
 SeeAlso:
+- [ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices](https://arxiv.org/abs/1707.01083)
 - [torchvision.models.shufflenetv2](https://github.com/pytorch/vision/blob/main/torchvision/models/shufflenetv2.py)
 """
 

@@ -1,5 +1,8 @@
 """
 LeNet-5 1998
+
+SeeAlso:
+- [Gradient-based learning applied to document recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf)
 """
 
 from torch import Tensor, nn

@@ -29,6 +29,7 @@ option(ONNXRuntime          "enable ONNXRuntime"                OFF)
 option(TensorRT             "enable TensorRT"                   OFF)
 option(OpenVINO             "enable Intel OpenVINO"             OFF)
 option(IntelRealSense       "enable Intel IntelRealSense"       OFF)
+option(FFmpeg               "enable FFmpeg"                     OFF)
 option(AsukaModule          "build Asuka for C++20 module"      OFF)
 
 ########################################################################################################################
@@ -113,6 +114,10 @@ endif(IntelRealSense AND realsense2_FOUND)
 if(OpenVINO AND OpenVINO_FOUND)
     add_subdirectory(openvino_learn)
 endif(OpenVINO AND OpenVINO_FOUND)
+
+if(FFmpeg AND FFMPEG_FOUND)
+    add_subdirectory(ffmpeg_learn)
+endif(FFmpeg AND FFMPEG_FOUND)
 
 # config.h settings
 configure_file(
