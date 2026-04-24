@@ -1,0 +1,5 @@
+add_executable(gstreamer_main main.cpp)
+target_include_directories(gstreamer_main PRIVATE ${GSTREAMER_INCLUDE_DIRS})
+target_link_directories(gstreamer_main PRIVATE ${GSTREAMER_LIBRARY_DIRS})
+target_link_libraries(gstreamer_main PRIVATE ${GSTREAMER_LIBRARIES})
+target_link_libraries(gstreamer_main PRIVATE fmt::fmt-header-only)

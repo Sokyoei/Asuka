@@ -25,12 +25,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ########################################################################################################################
 # options
 ########################################################################################################################
+option(AsukaModule          "build Asuka for C++20 module"      OFF)
+
 option(ONNXRuntime          "enable ONNXRuntime"                OFF)
 option(TensorRT             "enable TensorRT"                   OFF)
 option(OpenVINO             "enable Intel OpenVINO"             OFF)
 option(IntelRealSense       "enable Intel IntelRealSense"       OFF)
 option(FFmpeg               "enable FFmpeg"                     OFF)
-option(AsukaModule          "build Asuka for C++20 module"      OFF)
+option(GStreamer            "enable GStreamer"                  OFF)
+
+option(Learning             "enable learning projects"          OFF)
 
 ########################################################################################################################
 # CMAKE_PREFIX_PATH/CMAKE_MODULE_PATH set
@@ -95,6 +99,10 @@ add_library(Ahri::Asuka-Header-Only ALIAS ahri_asuka_header_only)
 ########################################################################################################################
 # Learning projects
 ########################################################################################################################
+if(Learning)
+    add_subdirectory(learning)
+endif(Learning)
+
 if(OpenCV_FOUND)
     add_subdirectory(opencv_learn)
 endif(OpenCV_FOUND)
@@ -114,10 +122,6 @@ endif(IntelRealSense AND realsense2_FOUND)
 if(OpenVINO AND OpenVINO_FOUND)
     add_subdirectory(openvino_learn)
 endif(OpenVINO AND OpenVINO_FOUND)
-
-if(FFmpeg AND FFMPEG_FOUND)
-    add_subdirectory(ffmpeg_learn)
-endif(FFmpeg AND FFMPEG_FOUND)
 
 # config.h settings
 configure_file(
