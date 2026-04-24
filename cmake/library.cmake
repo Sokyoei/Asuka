@@ -1,3 +1,10 @@
+find_package(PkgConfig)
+if(PkgConfig_FOUND)
+    message(STATUS "PkgConfig found")
+else()
+    message(STATUS "PkgConfig not found")
+endif(PkgConfig_FOUND)
+
 find_package(fmt CONFIG REQUIRED)
 # target_link_libraries(main PRIVATE fmt::fmt)
 # target_link_libraries(main PRIVATE fmt::fmt-header-only)
@@ -55,6 +62,13 @@ if(CMAKE_CUDA_COMPILER)
     set(USE_CUDATOOLKIT true)
 endif(CMAKE_CUDA_COMPILER)
 
+pkg_check_modules(GSTREAMER gstreamer-1.0 gstreamer-base-1.0 gstreamer-video-1.0)
+if(GSTREAMER_FOUND)
+    set(USE_GSTREAMER true)
+    message(STATUS "GStreamer libraries: ${GSTREAMER_LIBRARIES}")
+    message(STATUS "GStreamer include directories: ${GSTREAMER_INCLUDE_DIRS}")
+    message(STATUS "GStreamer library directories: ${GSTREAMER_LIBRARY_DIRS}")
+endif(GSTREAMER_FOUND)
 
 # WARNING: if default, the onnxruntime.dll first well load in C:\Windows\System32\onnxruntime.dll
 if(ONNXRuntime)
