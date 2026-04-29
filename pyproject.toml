@@ -72,6 +72,7 @@ llm = [
 ]
 mcp = ["mcp[cli]", "httpx"]
 agent = ["langchain", "langchain-community", "langchain-openai", "langchain-text-splitters"]
+jupyter = ["jupyterlab", "jupytext"]
 
 [project.scripts]
 ahri_asuka_webapp = "Ahri.Asuka.web.main:main"
