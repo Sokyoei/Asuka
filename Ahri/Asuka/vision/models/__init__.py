@@ -1,4 +1,5 @@
 from .AlexNet import AlexNet, alexnet
+from .DenseNet import DenseNet, densenet121, densenet161, densenet169, densenet201, densenet264
 from .GoogLeNet import GoogLeNet, googlenet
 from .LeNet5 import LeNet5, lenet5
 from .MobileNet import MobileNetV1, mobilenet_v1
@@ -10,6 +11,7 @@ from .VGG import VGG, vgg11, vgg13, vgg16, vgg19
 __all__ = [
     "VGG",
     "AlexNet",
+    "DenseNet",
     "GoogLeNet",
     "LeNet5",
     "MobileNetV1",
@@ -17,6 +19,11 @@ __all__ = [
     "ShuffleNetV1",
     "SqueezeNet",
     "alexnet",
+    "densenet121",
+    "densenet161",
+    "densenet169",
+    "densenet201",
+    "densenet264",
     "googlenet",
     "lenet5",
     "mobilenet_v1",
