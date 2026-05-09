@@ -19,5 +19,8 @@
 #cmakedefine USE_GLFW3
 #cmakedefine USE_IMGUI
 #cmakedefine USE_GSTREAMER
+#cmakedefine USE_PCL
+#cmakedefine USE_CUDATOOLKIT
+#cmakedefine USE_EIGEN3
 
 #endif  // !CONFIG_H

@@ -33,6 +33,7 @@ option(OpenVINO             "enable Intel OpenVINO"             OFF)
 option(IntelRealSense       "enable Intel IntelRealSense"       OFF)
 option(FFmpeg               "enable FFmpeg"                     OFF)
 option(GStreamer            "enable GStreamer"                  OFF)
+option(PCL                  "enable PCL"                        OFF)
 
 option(Learning             "enable learning projects"          OFF)
 
