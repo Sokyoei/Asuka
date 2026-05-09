@@ -1,5 +1,16 @@
 from .AlexNet import AlexNet, alexnet
 from .DenseNet import DenseNet, densenet121, densenet161, densenet169, densenet201, densenet264
+from .EfficientNet import (
+    EfficientNet,
+    efficientnet_b0,
+    efficientnet_b1,
+    efficientnet_b2,
+    efficientnet_b3,
+    efficientnet_b4,
+    efficientnet_b5,
+    efficientnet_b6,
+    efficientnet_b7,
+)
 from .GoogLeNet import GoogLeNet, googlenet
 from .LeNet5 import LeNet5, lenet5
 from .MobileNet import MobileNetV1, mobilenet_v1
@@ -12,6 +23,7 @@ __all__ = [
     "VGG",
     "AlexNet",
     "DenseNet",
+    "EfficientNet",
     "GoogLeNet",
     "LeNet5",
     "MobileNetV1",
@@ -24,6 +36,14 @@ __all__ = [
     "densenet169",
     "densenet201",
     "densenet264",
+    "efficientnet_b0",
+    "efficientnet_b1",
+    "efficientnet_b2",
+    "efficientnet_b3",
+    "efficientnet_b4",
+    "efficientnet_b5",
+    "efficientnet_b6",
+    "efficientnet_b7",
     "googlenet",
     "lenet5",
     "mobilenet_v1",
