@@ -1,5 +1,3 @@
-from typing import List
-
 import cv2
 import mediapipe as mp
 
@@ -7,12 +5,12 @@ mp_drawing = mp.solutions.drawing_utils
 mp_objectron = mp.solutions.objectron
 
 
-def inference_images(image_files: List[str]):
+def inference_images(image_files: list[str]):
     # For static images:
     with mp_objectron.Objectron(
         static_image_mode=True, max_num_objects=5, min_detection_confidence=0.5, model_name='Shoe'
     ) as objectron:
-        for idx, file in enumerate(image_files):
+        for _idx, file in enumerate(image_files):
             image = cv2.imread(file)
             # Convert the BGR image to RGB and process it with MediaPipe Objectron.
             results = objectron.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))

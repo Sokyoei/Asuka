@@ -2,8 +2,6 @@
 Reference: https://github.com/google-ai-edge/mediapipe/blob/master/docs/solutions/pose.md#python-solution-api
 """
 
-from typing import List
-
 import cv2
 import mediapipe as mp
 import numpy as np
@@ -13,7 +11,7 @@ mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 
 
-def inference_images(image_files: List[str]):
+def inference_images(image_files: list[str]):
     # For static images:
     BG_COLOR = (192, 192, 192)  # gray
     with mp_pose.Pose(

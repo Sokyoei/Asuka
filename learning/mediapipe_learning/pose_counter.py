@@ -6,19 +6,18 @@ Reference:
 import math
 from abc import ABC, abstractmethod
 from enum import IntEnum
-from typing import TypeVar
+from typing import Self, TypeVar
 
 import cv2
 import mediapipe as mp
 import numpy as np
-from typing_extensions import Self
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 
 
-class Point(object):
+class Point:
     """Point 2D"""
 
     def __init__(self, x: float, y: float) -> None:
@@ -30,7 +29,7 @@ class Point(object):
         return distance
 
 
-class Triangle(object):
+class Triangle:
     r"""三角形，已知三角形各边长度计算角度
 
             A
@@ -232,7 +231,7 @@ class Pushup(AbstractCounter):
 CounterType = TypeVar("CounterType", bound=AbstractCounter)
 
 
-def inference_camera(algorithms: CounterType, mp4_path: str):
+def inference_camera[CounterType: AbstractCounter](algorithms: CounterType, mp4_path: str):
     # For webcam input:
     counter: CounterType = algorithms()
     cap = cv2.VideoCapture(mp4_path)

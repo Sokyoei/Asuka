@@ -2,8 +2,6 @@
 Reference: https://github.com/google-ai-edge/mediapipe/blob/master/docs/solutions/face_detection.md#python-solution-api
 """
 
-from typing import List
-
 import cv2
 import mediapipe as mp
 
@@ -11,7 +9,7 @@ mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
 
 
-def inference_img(image_files: List[str]):
+def inference_img(image_files: list[str]):
     # For static images:
     IMAGE_FILES = []
     with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5) as face_detection:
