@@ -63,12 +63,15 @@ llm = [
     "huggingface_hub",
     # api
     "openai",
+    "anthropic",
+    "ollama",
     # models
     "transformers",
     "diffusers",
     "timm",
     # finetuning
     "peft",
+    "trl",
 ]
 mcp = ["mcp[cli]", "httpx"]
 agent = ["langchain", "langchain-community", "langchain-openai", "langchain-text-splitters"]
