@@ -42,7 +42,7 @@ def get_3d_camera_coordinate(point, aligned_depth_frame, depth_intrin):
     return distance, camera_coordinate
 
 
-class RealDistance(object):
+class RealDistance:
 
     def __init__(self):
         self.q = deque()
@@ -60,10 +60,10 @@ class RealDistance(object):
         cv2.setMouseCallback("RealSense", self.get_points)
         while True:
             # 获取对齐图像与相机参数
-            color_intrin, depth_intrin, img_color, img_depth, aligned_depth_frame = get_aligned_images()
+            _color_intrin, depth_intrin, img_color, _img_depth, aligned_depth_frame = get_aligned_images()
 
             if len(self.q) == 2:
-                ((xx1, yy1), (xx2, yy2)) = self.q
+                (xx1, yy1), (xx2, yy2) = self.q
                 p1 = (xx1, yy1)
                 dis1, camera_coordinate1 = get_3d_camera_coordinate(p1, aligned_depth_frame, depth_intrin)
 
