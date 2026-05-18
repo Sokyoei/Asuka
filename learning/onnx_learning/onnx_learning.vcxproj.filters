@@ -20,6 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\msbuild\ONNXRuntime.props" />
+    <None Include="..\..\msbuild\ONNXRuntime.props" />
   </ItemGroup>
 </Project>

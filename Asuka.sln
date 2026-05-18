@@ -6,7 +6,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tensorrt_learn", "tensorrt_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv_learn", "opencv_learn\opencv_learn.vcxproj", "{F7567CD9-4776-4105-84AB-5B4406FDC7B8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "onnx_learn", "onnx_learn\onnx_learn.vcxproj", "{47941FE2-49EC-41DB-BA34-44CC4D032757}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "onnx_learning", "learning\onnx_learning\onnx_learning.vcxproj", "{47941FE2-49EC-41DB-BA34-44CC4D032757}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openvino_learn", "openvino_learn\openvino_learn.vcxproj", "{22C97FEE-B82D-4371-85C0-2542FE14B177}"
 	ProjectSection(ProjectDependencies) = postProject

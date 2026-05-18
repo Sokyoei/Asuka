@@ -9,11 +9,13 @@ import numpy as np
 import onnx
 import onnx_graphsurgeon as gs
 
+rng = np.random.default_rng()
+
 
 def gs_conv():
     input = gs.Variable(name="input0", dtype=np.float32, shape=(1, 3, 224, 224))
-    weight = gs.Constant(name="conv1.weight", values=np.random.randn(5, 3, 3, 3))
-    bias = gs.Constant(name="conv1.bias", values=np.random.randn(5))
+    weight = gs.Constant(name="conv1.weight", values=rng.standard_normal(5, 3, 3, 3))
+    bias = gs.Constant(name="conv1.bias", values=rng.standard_normal(5))
     output = gs.Variable(name="output0", dtype=np.float32, shape=(1, 5, 224, 224))
     node = gs.Node(op="Conv", inputs=[input, weight, bias], outputs=[output], attrs={"pads": [1, 1, 1, 1]})
     graph = gs.Graph(nodes=[node], inputs=[input], outputs=[output])
@@ -44,10 +46,10 @@ def relu(self: gs.Graph, a):
 
 def gs_register():
     graph = gs.Graph(opset=12)
-    cons_a = gs.Constant(name="cons_a", values=np.random.randn(64, 32))
-    cons_b = gs.Constant(name="cons_b", values=np.random.randn(64, 32))
-    cons_c = gs.Constant(name="cons_c", values=np.random.randn(64, 32))
-    cons_d = gs.Constant(name="cons_d", values=np.random.randn(64, 32))
+    cons_a = gs.Constant(name="cons_a", values=rng.standard_normal(64, 32))
+    cons_b = gs.Constant(name="cons_b", values=rng.standard_normal(64, 32))
+    cons_c = gs.Constant(name="cons_c", values=rng.standard_normal(64, 32))
+    cons_d = gs.Constant(name="cons_d", values=rng.standard_normal(64, 32))
     input0 = gs.Variable(name="input0", dtype=np.float32, shape=(64, 64))
 
     gemm0 = graph.gemm(input0, cons_a, trans_b=True)

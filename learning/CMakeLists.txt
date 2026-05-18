@@ -13,3 +13,7 @@ endif(PCL AND PCL_FOUND)
 if(RealSense AND realsense2_FOUND)
     add_subdirectory(realsense_learning)
 endif(RealSense AND realsense2_FOUND)
+
+if(ONNXRuntime AND ONNXRuntime_FOUND)
+    add_subdirectory(onnx_learning)
+endif(ONNXRuntime AND ONNXRuntime_FOUND)

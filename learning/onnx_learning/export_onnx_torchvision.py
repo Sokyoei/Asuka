@@ -1,5 +1,3 @@
-from typing import Tuple
-
 import onnx
 import onnxsim
 import torch
@@ -7,7 +5,7 @@ import torchvision
 from torch import Tensor, nn
 
 
-def export(pth_model: nn.Module, args: Tuple[Tensor]):
+def export(pth_model: nn.Module, args: tuple[Tensor]):
     model_name = pth_model._get_name()
     onnx_model_name = f"{model_name}.onnx"
 

@@ -2,7 +2,7 @@
 使用 onnx_graphsurgeon 更改（融合）网络节点
 """
 
-from typing import OrderedDict
+from collections import OrderedDict
 
 import numpy as np
 import onnx

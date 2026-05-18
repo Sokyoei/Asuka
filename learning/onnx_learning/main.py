@@ -10,8 +10,6 @@ python export.py --weights model_path --include=onnx
 ```
 """
 
-from typing import List
-
 import cv2
 import numpy as np
 import onnx
@@ -36,7 +34,7 @@ CLASSES = [
 # fmt:on
 
 
-class YOLOv5ONNX(object):
+class YOLOv5ONNX:
 
     def __init__(self, onnx_path, conf_threshold: float, nms_threshold) -> None:
         model = onnx.load(str(onnx_path))
@@ -50,7 +48,7 @@ class YOLOv5ONNX(object):
 
         self.options = ort.SessionOptions()
         self.options.enable_profiling = True
-        providers: List[str] = ort.get_available_providers()
+        providers: list[str] = ort.get_available_providers()
         # 删除 TensorrtExecutionProvider
         if "TensorrtExecutionProvider" in providers:
             providers.remove("TensorrtExecutionProvider")
@@ -66,10 +64,10 @@ class YOLOv5ONNX(object):
         img = img.astype(np.float32)
         img /= 255.0
         img = np.expand_dims(img, axis=0)
-        preds: List[NDArray] = self.ort_session.run([self.output_name], {self.input_name: img})
+        preds: list[NDArray] = self.ort_session.run([self.output_name], {self.input_name: img})
         return preds, img
 
-    def postprocess(self, preds: List[NDArray]):
+    def postprocess(self, preds: list[NDArray]):
         """后处理，去除多余的候选框"""
         for pred in preds:
             pred = pred.squeeze()

@@ -3,7 +3,10 @@
 
 #define ASUKA_ROOT @@ASUKA_ROOT@@
 
-// libraries
+// CUDA support
+#define HAS_CUDA @@HAS_CUDA@@
+
+// third libraries
 #define USE_FMT
 #define USE_SPDLOG
 #define USE_OPENCV
@@ -15,5 +18,9 @@
 #define USE_GLAD
 #define USE_GLFW3
 #define USE_IMGUI
+#define USE_GSTREAMER
+#define USE_PCL
+#define USE_CUDATOOLKIT
+#define USE_EIGEN3
 
 #endif  // !CONFIG_H

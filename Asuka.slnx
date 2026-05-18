@@ -3,7 +3,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="onnx_learn/onnx_learn.vcxproj" Id="47941fe2-49ec-41db-ba34-44cc4d032757" />
+  <Project Path="learning/onnx_learning/onnx_learning.vcxproj" Id="47941fe2-49ec-41db-ba34-44cc4d032757" />
   <Project Path="opencv_learn/opencv_learn.vcxproj" Id="f7567cd9-4776-4105-84ab-5b4406fdc7b8" />
   <Project Path="openvino_learn/openvino_learn.vcxproj" Id="22c97fee-b82d-4371-85c0-2542fe14b177">
     <BuildDependency Project="openvino_learn/plugins/ahri_plugin_openvino.vcxproj" />

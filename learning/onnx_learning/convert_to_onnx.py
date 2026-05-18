@@ -9,7 +9,7 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 
-class ExportONNX(object):
+class ExportONNX:
 
     def __init__(self, model_path: str | os.PathLike, input_name: str, output_name: str) -> None:
         self.model_path = Path(model_path)

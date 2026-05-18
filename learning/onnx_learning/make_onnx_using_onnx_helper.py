@@ -10,6 +10,8 @@ import onnx
 from numpy.typing import NDArray
 from onnx import ModelProto, TensorProto, helper
 
+rng = np.random.default_rng()
+
 
 def create_onnx() -> ModelProto:
     # 创建 ValueProto
@@ -53,8 +55,8 @@ def create_net() -> ModelProto:
     conv2d_1_bias_name = "conv2d_1.bias"
     conv2d_1_output_name = "conv2d_1.output"
 
-    conv2d_1_weight_init = create_init_tensor(conv2d_1_weight_name, np.random.randn(32, 64, 3, 3))
-    conv2d_1_bias_init = create_init_tensor(conv2d_1_bias_name, np.random.randn(32))
+    conv2d_1_weight_init = create_init_tensor(conv2d_1_weight_name, rng.standard_normal(32, 64, 3, 3))
+    conv2d_1_bias_init = create_init_tensor(conv2d_1_bias_name, rng.standard_normal(32))
     conv2d_1 = helper.make_node(
         "Conv",
         [input_name, conv2d_1_weight_name, conv2d_1_bias_name],
@@ -71,10 +73,10 @@ def create_net() -> ModelProto:
     bn1_var_name = "batchnorm_1.var"
     bn1_output_name = "batchnorm_1.output"
 
-    bn1_scale_init = create_init_tensor(bn1_scale_name, np.random.randn(32))
-    bn1_bias_init = create_init_tensor(bn1_bias_name, np.random.randn(32))
-    bn1_mean_init = create_init_tensor(bn1_mean_name, np.random.randn(32))
-    bn1_var_init = create_init_tensor(bn1_var_name, np.random.randn(32))
+    bn1_scale_init = create_init_tensor(bn1_scale_name, rng.standard_normal(32))
+    bn1_bias_init = create_init_tensor(bn1_bias_name, rng.standard_normal(32))
+    bn1_mean_init = create_init_tensor(bn1_mean_name, rng.standard_normal(32))
+    bn1_var_init = create_init_tensor(bn1_var_name, rng.standard_normal(32))
 
     bn1 = helper.make_node(
         "BatchNormalization",
@@ -97,8 +99,8 @@ def create_net() -> ModelProto:
     conv2d_2_weight_name = "conv2d_2.weight"
     conv2d_2_bias_name = "conv2d_2.bias"
 
-    conv2d_2_weight_init = create_init_tensor(conv2d_2_weight_name, np.random.randn(16, 32, 1, 1))
-    conv2d_2_bias_init = create_init_tensor(conv2d_2_bias_name, np.random.randn(16))
+    conv2d_2_weight_init = create_init_tensor(conv2d_2_weight_name, rng.standard_normal(16, 32, 1, 1))
+    conv2d_2_bias_init = create_init_tensor(conv2d_2_bias_name, rng.standard_normal(16))
     conv2d_2 = helper.make_node(
         "Conv",
         [avg_pool_output_name, conv2d_2_weight_name, conv2d_2_bias_name],
