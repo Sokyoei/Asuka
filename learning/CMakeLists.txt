@@ -21,3 +21,7 @@ endif(ONNXRuntime AND ONNXRuntime_FOUND)
 if(OpenVINO AND OpenVINO_FOUND)
     add_subdirectory(openvino_learning)
 endif(OpenVINO AND OpenVINO_FOUND)
+
+if(TensorRT AND TensorRT_FOUND)
+    add_subdirectory(tensorrt_learning)
+endif(TensorRT AND TensorRT_FOUND)

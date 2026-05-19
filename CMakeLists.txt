@@ -108,10 +108,6 @@ if(OpenCV_FOUND)
     add_subdirectory(opencv_learn)
 endif(OpenCV_FOUND)
 
-if(TensorRT AND TensorRT_FOUND)
-    add_subdirectory(tensorrt_learn)
-endif(TensorRT AND TensorRT_FOUND)
-
 # config.h settings
 configure_file(
     ${PROJECT_SOURCE_DIR}/config.h.cmake

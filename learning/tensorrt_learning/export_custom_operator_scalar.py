@@ -1,11 +1,10 @@
-import numpy as np
 import onnx
 import onnxruntime as ort
 import onnxsim
 import torch
 from numpy.typing import NDArray
 from onnxruntime_extensions import PyCustomOpDef, onnx_op
-from onnxruntime_extensions import get_library_path as _lib_path
+from onnxruntime_extensions import get_library_path as _lib_path  # noqa: F401
 from torch import Tensor, nn
 from torch.autograd.function import Function, FunctionCtx
 from torch.onnx._internal import jit_utils
