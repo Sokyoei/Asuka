@@ -17,3 +17,7 @@ endif(RealSense AND realsense2_FOUND)
 if(ONNXRuntime AND ONNXRuntime_FOUND)
     add_subdirectory(onnx_learning)
 endif(ONNXRuntime AND ONNXRuntime_FOUND)
+
+if(OpenVINO AND OpenVINO_FOUND)
+    add_subdirectory(openvino_learning)
+endif(OpenVINO AND OpenVINO_FOUND)

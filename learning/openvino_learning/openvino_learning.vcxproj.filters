@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\msbuild\OpenVINO_Debug.props" />
-    <None Include="..\msbuild\OpenVINO_Release.props" />
+    <None Include="..\..\msbuild\OpenVINO_Debug.props" />
+    <None Include="..\..\msbuild\OpenVINO_Release.props" />
   </ItemGroup>
 </Project>

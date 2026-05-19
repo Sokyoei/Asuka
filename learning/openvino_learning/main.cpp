@@ -1,3 +1,5 @@
+#include "config.h"
+
 #include <filesystem>
 
 #include "Ahri/Asuka.hpp"

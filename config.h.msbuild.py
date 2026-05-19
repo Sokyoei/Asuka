@@ -6,13 +6,14 @@ from pathlib import Path
 def main():
     config_h_msbuild, config_h, solution_dir = sys.argv[1:]
 
-    asuka_root = str(Path(solution_dir)).replace('\\', '/')
     with open(config_h_msbuild) as f:
-        in_file_text = f.read()
+        text = f.read()
 
-    with open(config_h, 'w') as f:
-        f.write(in_file_text.replace('@@ASUKA_ROOT@@', f'"{asuka_root}"'))
+    # ASUKA_ROOT
+    asuka_root = str(Path(solution_dir)).replace('\\', '/')
+    text = text.replace('@@ASUKA_ROOT@@', f'"{asuka_root}"')
 
+    # HAS_CUDA
     try:
         ret = subprocess.run(["nvcc", "--version"], check=True)
         ret.check_returncode()
@@ -20,9 +21,10 @@ def main():
     except Exception:
         has_cuda = 0
         print("nvcc not found, please install cuda")
+    text = text.replace('@@HAS_CUDA@@', f'{has_cuda}')
 
     with open(config_h, 'w') as f:
-        f.write(in_file_text.replace('@@HAS_CUDA@@', f'{has_cuda}'))
+        f.write(text)
 
 
 if __name__ == '__main__':
