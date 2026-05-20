@@ -21,7 +21,7 @@ def FLD(img: MatLike):
 def LSD(img: MatLike):
     lsd = cv2.createLineSegmentDetector()
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    lines, width, prec, nfs = lsd.detect(img_gray)
+    lines, _width, _prec, _nfs = lsd.detect(img_gray)
     img = lsd.drawSegments(img, lines)
     return img
 

@@ -73,10 +73,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ExternalIncludePath>$(VcpkgRoot)\installed\x64-windows\include\opencv4;$(SolutionDir)\include;$(SolutionDir);$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(VcpkgRoot)\installed\x64-windows\include\opencv4;$(SolutionDir);$(SolutionDir)\include;$(SolutionDir)\..\Ceceilia;$(SolutionDir)\..\Ceceilia\include;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ExternalIncludePath>$(VcpkgRoot)\installed\x64-windows\include\opencv4;$(SolutionDir)\include;$(SolutionDir);$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(VcpkgRoot)\installed\x64-windows\include\opencv4;$(SolutionDir);$(SolutionDir)\include;$(SolutionDir)\..\Ceceilia;$(SolutionDir)\..\Ceceilia\include;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

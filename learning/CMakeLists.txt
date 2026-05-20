@@ -25,3 +25,7 @@ endif(OpenVINO AND OpenVINO_FOUND)
 if(TensorRT AND TensorRT_FOUND)
     add_subdirectory(tensorrt_learning)
 endif(TensorRT AND TensorRT_FOUND)
+
+if(OpenCV AND OpenCV_FOUND)
+    add_subdirectory(opencv_learning)
+endif(OpenCV AND OpenCV_FOUND)

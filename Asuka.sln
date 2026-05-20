@@ -4,7 +4,7 @@ VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tensorrt_learning", "learning\tensorrt_learning\tensorrt_learning.vcxproj", "{7D85C527-E444-46D2-83C0-2437FEBE1A50}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv_learn", "opencv_learn\opencv_learn.vcxproj", "{F7567CD9-4776-4105-84AB-5B4406FDC7B8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv_learning", "learning\opencv_learning\opencv_learning.vcxproj", "{F7567CD9-4776-4105-84AB-5B4406FDC7B8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "onnx_learning", "learning\onnx_learning\onnx_learning.vcxproj", "{47941FE2-49EC-41DB-BA34-44CC4D032757}"
 EndProject

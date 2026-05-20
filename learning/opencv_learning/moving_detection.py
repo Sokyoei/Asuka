@@ -13,7 +13,7 @@ from matplotlib import pyplot as plt
 BackgroundMode = Literal["GMM", "KNN"]
 
 
-class MovingDetector(object):
+class MovingDetector:
 
     def __init__(self, mode: BackgroundMode = "KNN"):
         self.model: cv2.BackgroundSubtractorMOG2 | cv2.BackgroundSubtractorKNN = {

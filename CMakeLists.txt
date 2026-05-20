@@ -27,6 +27,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ########################################################################################################################
 option(AsukaModule          "build Asuka for C++20 module"      OFF)
 
+option(OpenCV               "enable OpenCV"                      ON)
 option(ONNXRuntime          "enable ONNXRuntime"                OFF)
 option(TensorRT             "enable TensorRT"                   OFF)
 option(OpenVINO             "enable Intel OpenVINO"             OFF)
@@ -103,10 +104,6 @@ add_library(Ahri::Asuka-Header-Only ALIAS ahri_asuka_header_only)
 if(Learning)
     add_subdirectory(learning)
 endif(Learning)
-
-if(OpenCV_FOUND)
-    add_subdirectory(opencv_learn)
-endif(OpenCV_FOUND)
 
 # config.h settings
 configure_file(
