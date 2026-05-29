@@ -58,7 +58,7 @@ model = models.Sequential(
 
 model.compile(optimizer=optimizers.Adam(learning_rate=LR), loss=losses.categorical_crossentropy, metrics=["accuracy"])
 tensorboard_callback = callbacks.TensorBoard(log_dir=settings.LOG_DIR / "tensorboard", histogram_freq=1)
-history = model.fit(
+history: callbacks.History = model.fit(
     x_train,
     y_train,
     batch_size=BATCH_SIZE,

@@ -1,4 +1,4 @@
-#include "Ahri/Asuka.hpp"
+#include "config.h"
 
 #ifdef USE_OPENCV
 #include "Ahri/Asuka/opencv_color.hpp"

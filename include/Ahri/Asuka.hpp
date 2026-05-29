@@ -14,8 +14,6 @@
 #include <iostream>
 #include <string>
 
-#include "../config.h"
-
 namespace Ahri {
 inline std::string _get_sokyoei_data_dir() {
     auto const SOKYOEI_DATA_DIR = std::getenv("SOKYOEI_DATA_DIR");

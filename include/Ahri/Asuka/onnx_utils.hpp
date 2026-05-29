@@ -10,6 +10,8 @@
 #ifndef AHRI_ASUKA_ONNX_UTILS_HPP
 #define AHRI_ASUKA_ONNX_UTILS_HPP
 
+#include "config.h"
+
 #include <algorithm>
 #include <filesystem>
 #include <iostream>
@@ -17,8 +19,6 @@
 #include <ranges>
 #include <string>
 #include <vector>
-
-#include "Ahri/Asuka.hpp"
 
 #include <fmt/core.h>
 #include <fmt/ranges.h>

@@ -10,6 +10,8 @@
 #ifndef AHRI_FFMPEG_UTILS_HPP
 #define AHRI_FFMPEG_UTILS_HPP
 
+#include "config.h"
+
 #include <iostream>
 
 extern "C" {

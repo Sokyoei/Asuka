@@ -3,7 +3,7 @@ opencv-python utils
 """
 
 from functools import wraps
-from typing import Literal, Tuple
+from typing import Literal
 
 import cv2
 import numpy as np
@@ -71,7 +71,7 @@ def imread(path: str, flags=cv2.IMREAD_COLOR):
 PopstarAhri = cv2.imread(str(SOKYOEI_DATA_DIR / "Ahri/Popstar Ahri.jpg"))
 
 
-def hex_to_bgr(hex_color: str) -> Tuple[int, int, int]:
+def hex_to_bgr(hex_color: str) -> tuple[int, int, int]:
     """opencv 16进制颜色字符串转换为 BGR 元组
 
     Args:
