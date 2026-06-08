@@ -85,6 +85,9 @@ build = ["build", "hatch"]
 dev = ["isort", "ruff", "black", "pre-commit"]
 test = ["pytest", "pytest-asyncio", "tox", "coverage"]
 torchtools = ["torchinfo", "torchview"]
+# genetate stubs for pybind11 extensions
+# for VSCode, run `pybind11-stubgen package -o typings`, then restart VSCode.
+extensions = ["pybind11-stubgen"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
