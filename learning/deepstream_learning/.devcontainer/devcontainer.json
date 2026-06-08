@@ -1,0 +1,54 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/miniconda
+{
+    "image": "nvcr.io/nvidia/deepstream:8.0-triton-multiarch",
+    "name": "DeepStream Development",
+    "runArgs": [
+        // 授予 GPU 访问权限
+        "--gpus=all",
+        // 使用宿主机网络
+        "--network=host",
+        // 授予特权模式
+        "--privileged",
+        // 挂载 X11 套接字用于图形界面
+        "-v=/tmp/.X11-unix:/tmp/.X11-unix",
+        // 容器名称
+        "--name=deepstream-dev"
+    ],
+    // 容器运行时的环境变量
+    "containerEnv": {
+        // 传递宿主机的显示环境变量，使图形界面能显示
+        "DISPLAY": "${localEnv:DISPLAY}",
+        "NVIDIA_DRIVER_CAPABILITIES": "all"
+    },
+    // 指定容器启动后的工作目录，VSCode 会将这里作为根目录
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    // WARNING: 注意需要文件夹存在才能创建容器
+    "mounts": [
+        "source=${localWorkspaceFolder}/deepstream_python_apps,target=/opt/nvidia/deepstream/deepstream/sources/deepstream_python_apps,type=bind"
+    ],
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "bash /workspace/.devcontainer/post-create.sh",
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "charliermarsh.ruff",
+                "formulahendry.code-runner",
+                "tamasfe.even-better-toml",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    },
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    "remoteUser": "root"
+}

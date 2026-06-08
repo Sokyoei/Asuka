@@ -1,0 +1,103 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "deepstream_learning"
+version = "1.0.0"
+authors = [{ name = "Sokyoei" }]
+license = { text = "MIT" }
+dependencies = ["onnx>=1.21.0", "onnxscript>=0.7.0", "onnxslim>=0.1.94", "pyyaml>=6.0.3", "ultralytics>=8.4.60"]
+requires-python = ">=3.12"
+
+[dependency-groups]
+build = ["build", "hatch"]
+dev = ["isort", "ruff", "black", "pre-commit"]
+jupyter = ["jupyterlab>=4.5.8"]
+test = ["pytest", "pytest-asyncio", "tox", "coverage"]
+
+[tool.hatch.build.targets.sdist]
+only-include = ["main.py"]
+
+[tool.hatch.build.targets.wheel]
+only-include = ["main.py"]
+
+[tool.uv]
+default-groups = ["dev", "test"]
+index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "nvidia"
+url = "https://pypi.ngc.nvidia.com"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+torchaudio = { index = "pytorch" }
+
+[tool.isort]
+line_length = 120
+multi_line_output = 0
+
+[tool.autopep8]
+max_line_length = 120
+
+[tool.black]
+line-length = 120
+preview = true
+skip-string-normalization = true
+skip-magic-trailing-comma = true
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+# https://docs.astral.sh/ruff/rules/
+select = [
+    "UP",  # pyupgrade
+    "F",   # pyflakes
+    "E",   # pycodestyle error
+    "W",   # pycodestyle warning
+    "C90", # mccabe
+    "I",   # isort
+    # "N",   # pep8-naming
+    # "D",   # pydocstyle
+    "PD",  # pandas-vet
+    "NPY", # numpy specific rules
+    "RUF", # ruff specific rules
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+]
+ignore = [
+    "E501",   # https://docs.astral.sh/ruff/rules/line-too-long/
+    "RUF001", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-string/
+    "RUF002", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-docstring/
+    "RUF003", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-comment/
+    "RUF012", # https://docs.astral.sh/ruff/rules/mutable-class-default/
+    "UP008",  # https://docs.astral.sh/ruff/rules/super-call-with-parameters/
+]
+# ignore-init-module-imports = true
+pydocstyle = { convention = "google" }
+
+[tool.ruff.lint.isort]
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 120
+indent-style = "space"
+line-ending = "lf"
+quote-style = "double"
+skip-magic-trailing-comma = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
