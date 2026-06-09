@@ -28,9 +28,14 @@ bash /opt/nvidia/deepstream/deepstream/user_additional_install.sh
 cd /opt/nvidia/deepstream/deepstream/samples/configs/deepstream-app
 deepstream-app -c source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display.txt
 
-## pyds 安装
+# Python 环境安装
+# 1. pyds 安装
 wget https://github.com/NVIDIA-AI-IOT/deepstream_python_apps/releases/download/v1.2.2/pyds-1.2.2-cp312-cp312-linux_x86_64.whl
 pip install ./pyds-1.2.2-cp312-cp312-linux_x86_64.whl
+
+# 2. uv 虚拟环境
+uv venv --system-site-packages
+uv sync
 ```
 
 ## YOLO 集成

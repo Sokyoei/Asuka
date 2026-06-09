@@ -1,0 +1,5 @@
+# ignore pybind11-stubgen generated pyi files
+/typings/
+
+# ignore downloaded files
+pyds-*.whl

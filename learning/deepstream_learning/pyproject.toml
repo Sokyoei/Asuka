@@ -7,12 +7,20 @@ name = "deepstream_learning"
 version = "1.0.0"
 authors = [{ name = "Sokyoei" }]
 license = { text = "MIT" }
-dependencies = ["onnx>=1.21.0", "onnxscript>=0.7.0", "onnxslim>=0.1.94", "pyyaml>=6.0.3", "ultralytics>=8.4.60"]
+dependencies = [
+    "loguru>=0.7.3",
+    "onnx>=1.21.0",
+    "onnxscript>=0.7.0",
+    "onnxslim>=0.1.94",
+    "pyyaml>=6.0.3",
+    "ultralytics>=8.4.60",
+]
 requires-python = ">=3.12"
 
 [dependency-groups]
 build = ["build", "hatch"]
 dev = ["isort", "ruff", "black", "pre-commit"]
+extensions = ["pybind11-stubgen>=2.5.5", "pyds-stubs>=1.2.2", "pygobject-stubs>=2.17.0"]
 jupyter = ["jupyterlab>=4.5.8"]
 test = ["pytest", "pytest-asyncio", "tox", "coverage"]
 
@@ -23,8 +31,10 @@ only-include = ["main.py"]
 only-include = ["main.py"]
 
 [tool.uv]
-default-groups = ["dev", "test"]
+default-groups = ["dev", "extensions", "test"]
 index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+# DeepStream 已经在系统中安装了所需的 PyGObject, 为了 `pygobject-stubs` 顺利安装，构建时忽略它的依赖，等效 `pip install pygobject-stubs --no-deps`
+dependency-metadata = [{ name = "pygobject-stubs", requires-dist = [] }]
 
 [[tool.uv.index]]
 name = "pytorch"
@@ -58,6 +68,7 @@ skip-magic-trailing-comma = true
 line-length = 120
 indent-width = 4
 target-version = "py312"
+exclude = ["typings", ".venv"]
 
 [tool.ruff.lint]
 # https://docs.astral.sh/ruff/rules/
