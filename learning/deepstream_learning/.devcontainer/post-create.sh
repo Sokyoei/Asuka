@@ -15,4 +15,7 @@ fi
 # 禁用 SSL 验证
 git config --global http.sslVerify false
 
+# 创建软链接方便查看
+ln -sf /opt/nvidia/deepstream/deepstream /workspace/deepstream
+
 echo "Post-create script finished."

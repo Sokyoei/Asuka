@@ -259,7 +259,7 @@ class DeepStreamPipeline(threading.Thread):
                 # NVMM memory features.
                 if features.contains("memory:NVMM"):
                     # Get the source bin ghost pad
-                    bin_ghost_pad = source_bin.get_static_pad("src")
+                    bin_ghost_pad: Gst.GhostPad = source_bin.get_static_pad("src")
                     if not bin_ghost_pad.set_target(decoder_src_pad):
                         logger.error("Failed to link decoder src pad to source bin ghost pad")
                 else:

@@ -3,3 +3,6 @@
 
 # ignore downloaded files
 pyds-*.whl
+
+# not ignore current Makefile
+!/Makefile
