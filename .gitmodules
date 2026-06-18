@@ -4,3 +4,6 @@
 [submodule "learning/deepstream_learning/deepstream_python_apps"]
 	path = learning/deepstream_learning/deepstream_python_apps
 	url = https://github.com/NVIDIA-AI-IOT/deepstream_python_apps
+[submodule "learning/deepstream_learning/DeepStream-Yolo-Pose"]
+	path = learning/deepstream_learning/DeepStream-Yolo-Pose
+	url = https://github.com/marcoslucianops/DeepStream-Yolo-Pose
