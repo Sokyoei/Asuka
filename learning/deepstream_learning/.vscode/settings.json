@@ -1,4 +1,11 @@
 {
     "python-envs.defaultEnvManager": "ms-python.python:venv",
     "clangd.path": "/usr/bin/clangd",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/workspace",
+            "binaryPath": "/workspace/deepstream_main",
+            "binaryArgs": []
+        }
+    ],
 }

@@ -16,7 +16,7 @@ from pathlib import Path
 from threading import Lock
 
 from cuda.bindings import driver, runtime
-from gi.repository import GLib, Gst
+from gi.repository import GLib, Gst  # pyright: ignore[reportMissingModuleSource]
 from loguru import logger
 
 sys.path.append('/opt/nvidia/deepstream/deepstream/lib')

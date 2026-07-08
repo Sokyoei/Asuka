@@ -48,7 +48,8 @@
                 "ms-toolsai.jupyter",
                 "intellsmi.comment-translate",
                 "EditorConfig.EditorConfig",
-                "FittenTech.Fitten-Code"
+                "FittenTech.Fitten-Code",
+                "ms-vscode.makefile-tools"
             ]
         }
     },

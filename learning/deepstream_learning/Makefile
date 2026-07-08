@@ -20,6 +20,7 @@ STDNVCC := c++20
 FLAGS := -I./ -I$(DEEPSTREAM_INCS_DIR)
 FLAGS += -I/usr/local/cuda/include
 FLAGS += $(shell pkg-config --cflags $(PKGS))
+FLAGS += -DSPDLOG_FMT_EXTERNAL
 CFLAGS := -std=$(STDC) -Wall $(FLAGS)
 CXXFLAGS := -std=$(STDCXX) -Wall $(FLAGS)
 CUFLAGS := -std=$(STDNVCC) -Wall $(FLAGS) -Xcompiler -fPIC
@@ -36,7 +37,7 @@ LIBS := -L/usr/local/cuda/lib64 -lcudart -lcuda
 LIBS += -L$(DEEPSTREAM_LIBS_DIR) \
 	-lnvdsgst_meta -lnvds_meta -lnvdsgst_helper -lnvdsgst_customhelper -lnvdsgst_smartrecord -lnvds_utils \
 	-lnvds_msgbroker \
-	-lyaml-cpp -lfmt -lm -ldl
+	-lyaml-cpp -lfmt -lspdlog -lm -ldl
 LIBS += $(shell pkg-config --libs $(PKGS))
 LIBS += -Wl,-rpath,$(DEEPSTREAM_LIBS_DIR)
 

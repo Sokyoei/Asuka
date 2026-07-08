@@ -15,3 +15,8 @@ Elelement 有三大类型
 | Source 源元素   | 产生数据流（rtsp 拉流、读取本地文件、摄像头读流等） | 只有输出端口（Source Pad），无输入端口         |
 | Filter 处理元素 | 加工处理数据（解码、格式转换、画图、流合并等）      | 同时有输入（Sink Pad）和输出（Source Pad）端口 |
 | Sink 终点元素   | 消费最终数据（播放画面、写入文件、推流等）          | 只有输入端口（Sink Pad），无输出端口           |
+
+```shell
+# 查看某个元素的所有信息
+gst-inspect-1.0 element_name
+```
