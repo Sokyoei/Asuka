@@ -12,7 +12,10 @@ dependencies = [
     "onnx>=1.21.0",
     "onnxscript>=0.7.0",
     "onnxslim>=0.1.94",
+    # "opencv-contrib-python",
     "pyyaml>=6.0.3",
+    "torch>=2.11.0",
+    "torchvision>=0.26.0",
     "ultralytics>=8.4.60",
 ]
 requires-python = ">=3.12"
@@ -50,6 +53,7 @@ explicit = true
 torch = { index = "pytorch" }
 torchvision = { index = "pytorch" }
 torchaudio = { index = "pytorch" }
+opencv-contrib-python = { path = "opencv-python/dist/opencv_contrib_python-4.13.0.92-cp312-cp312-linux_x86_64.whl" }
 
 [tool.isort]
 line_length = 120
