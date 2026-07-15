@@ -13,3 +13,6 @@
 [submodule "learning/tensorrt_learning/TensorRT"]
 	path = learning/tensorrt_learning/TensorRT
 	url = https://github.com/NVIDIA/TensorRT
+[submodule "learning/tensorrt_learning/tensorrtx"]
+	path = learning/tensorrt_learning/tensorrtx
+	url = https://github.com/wang-xinyu/tensorrtx
