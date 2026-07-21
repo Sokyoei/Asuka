@@ -16,3 +16,6 @@
 [submodule "learning/tensorrt_learning/tensorrtx"]
 	path = learning/tensorrt_learning/tensorrtx
 	url = https://github.com/wang-xinyu/tensorrtx
+[submodule "learning/onnx_learning/onnxruntime-inference-examples"]
+	path = learning/onnx_learning/onnxruntime-inference-examples
+	url = https://github.com/microsoft/onnxruntime-inference-examples
