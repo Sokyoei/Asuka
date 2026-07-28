@@ -19,3 +19,6 @@
 [submodule "learning/onnx_learning/onnxruntime-inference-examples"]
 	path = learning/onnx_learning/onnxruntime-inference-examples
 	url = https://github.com/microsoft/onnxruntime-inference-examples
+[submodule "learning/opencv_learning/learnopencv"]
+	path = learning/opencv_learning/learnopencv
+	url = https://github.com/spmallick/learnopencv
