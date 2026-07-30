@@ -22,3 +22,6 @@
 [submodule "learning/opencv_learning/learnopencv"]
 	path = learning/opencv_learning/learnopencv
 	url = https://github.com/spmallick/learnopencv
+[submodule "learning/deepstream_learning/DeepStream-mirror"]
+	path = learning/deepstream_learning/DeepStream-mirror
+	url = https://github.com/NVIDIA/DeepStream
