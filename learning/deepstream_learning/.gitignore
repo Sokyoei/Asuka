@@ -10,7 +10,13 @@ pyds-*.whl
 # ignore deepstream link
 deepstream
 
+# ignore opencv-python source dir and build whl(for build CUDA version)
 opencv-python
+opencv_python-*.whl
+opencv_contrib_python-*.whl
+
+# ignore build execuated files
+deepstream_main
 
 ########################################################################################################################
 # C++

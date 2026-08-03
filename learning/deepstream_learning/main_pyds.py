@@ -144,6 +144,9 @@ class DeepStreamPipeline(threading.Thread):
             return None
         pgie.set_property("config-file-path", PGIE_CONFIG_FILE)
         pgie.set_property("batch-size", self.num_sources)
+        # NOTE: DeepStream-Yolo 配置文件里有 `engine-create-func-name=NvDsInferYoloCudaEngineGet`,
+        # engine 构建路径和程序入口在同一路径下
+        pgie.set_property("model-engine-file", f"model_b{len(self.streams)}_gpu0_fp16.engine")
         pipeline.add(pgie)
 
         # 4. 跟踪器 nvtracker
