@@ -66,7 +66,7 @@ static char av_error[AV_ERROR_MAX_STRING_SIZE] = {0};
     do {                                                                 \
         if (retcode != 0)                                                \
             av_log(nullptr, AV_LOG_ERROR, message, av_err2str(retcode)); \
-        return EXIT_FAILURE                                              \
+        return EXIT_FAILURE;                                             \
     } while (0)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
