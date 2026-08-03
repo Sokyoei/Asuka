@@ -26,7 +26,8 @@
     "workspaceFolder": "/workspace",
     // WARNING: 注意需要文件夹存在才能创建容器
     "mounts": [
-        "source=${localWorkspaceFolder}/deepstream_python_apps,target=/opt/nvidia/deepstream/deepstream/sources/deepstream_python_apps,type=bind"
+        "source=${localWorkspaceFolder}/deepstream_python_apps,target=/opt/nvidia/deepstream/deepstream/sources/deepstream_python_apps,type=bind",
+        "source=${localWorkspaceFolder}/clangd/config.yaml,target=/root/.config/clangd/config.yaml,type=bind"
     ],
     // Features to add to the dev container. More info: https://containers.dev/features.
     // "features": {},

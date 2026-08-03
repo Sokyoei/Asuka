@@ -54,3 +54,15 @@ python3 export_yolo26.py -w yolo26l.pt --simplify --batch 40 --opset 18
 cd /workspace/DeepStream-Yolo
 deepstream-app -c deepstream_app_config.txt
 ```
+
+## C++ 环境
+
+最新 clangd 安装
+
+```shell
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+./llvm.sh 22
+update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-22 100
+clangd --version
+```

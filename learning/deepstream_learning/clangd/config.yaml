@@ -1,0 +1,9 @@
+CompileFlags:
+  Add:
+    - -isystem/usr/include/gstreamer-1.0
+    - -isystem/usr/include/glib-2.0
+    - -isystem/usr/lib/x86_64-linux-gnu/glib-2.0/include
+    - -I/opt/nvidia/deepstream/deepstream/sources/includes/**
+    - -I/opt/nvidia/deepstream/deepstream/service-maker/includes/**
+    - -I/opt/nvidia/deepstream/deepstream/sources/apps/apps-common/includes
+  Compiler: gcc
