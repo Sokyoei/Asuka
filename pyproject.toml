@@ -135,6 +135,7 @@ skip-magic-trailing-comma = true
 line-length = 120
 indent-width = 4
 target-version = "py312"
+extend-exclude = ["typings"]
 
 [tool.ruff.lint]
 # https://docs.astral.sh/ruff/rules/
@@ -158,10 +159,8 @@ ignore = [
     "RUF001", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-string/
     "RUF002", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-docstring/
     "RUF003", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-comment/
-    "RUF012", # https://docs.astral.sh/ruff/rules/mutable-class-default/
-    "UP008",  # https://docs.astral.sh/ruff/rules/super-call-with-parameters/
 ]
-# ignore-init-module-imports = true
+# ignore-init-module-imports = true # deprecated https://docs.astral.sh/ruff/settings/#lint_ignore-init-module-imports
 pydocstyle = { convention = "google" }
 
 [tool.ruff.lint.isort]
@@ -178,3 +177,8 @@ skip-magic-trailing-comma = true
 minversion = "6.0"
 addopts = "-ra -q"
 testpaths = ["tests"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+ignore = ["typings"]
+typeCheckingMode = "basic"
