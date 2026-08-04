@@ -1,5 +1,7 @@
 # 1. Import required modules
-from anomalib.data import PredictDataset
+from typing import cast
+
+from anomalib.data import ImageBatch, PredictDataset
 from anomalib.engine import Engine
 from anomalib.models import Patchcore
 
@@ -22,6 +24,7 @@ predictions = engine.predict(
 
 # 5. Access the results
 if predictions is not None:
+    predictions = cast(list[ImageBatch], predictions)
     for prediction in predictions:
         image_path = prediction.image_path
         anomaly_map = prediction.anomaly_map  # Pixel-level anomaly heatmap
