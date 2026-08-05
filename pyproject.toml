@@ -103,7 +103,7 @@ pattern = '__version__ = "(?P<version>.*)"'
 default-groups = ["dev", "test"]
 index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 # 排除 `opencv-python`, 强制使用 `opencv-contrib-python`
-exclude-dependencies = ["opencv-python"]
+exclude-dependencies = ["opencv-python", "opencv-python-headless", "opencv-contrib-python-headless"]
 
 [[tool.uv.index]]
 name = "pytorch"
@@ -184,4 +184,4 @@ testpaths = ["tests"]
 pythonVersion = "3.12"
 ignore = ["typings"]
 typeCheckingMode = "basic"
-exclude = ["**/node_modules", "**/__pycache__", "**/.*", "learning/opencv_learning/learnopencv"]
+exclude = ["**/node_modules", "**/__pycache__", "**/.*", ".venv", "learning/opencv_learning/learnopencv"]
