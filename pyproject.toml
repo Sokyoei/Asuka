@@ -76,6 +76,7 @@ llm = [
 mcp = ["mcp[cli]", "httpx"]
 agent = ["langchain", "langchain-community", "langchain-openai", "langchain-text-splitters"]
 jupyter = ["jupyterlab", "jupytext"]
+roboflow = ["inference>=1.3.7", "supervision>=0.30.0", "trackers>=2.4.0"]
 
 [project.scripts]
 ahri_asuka_webapp = "Ahri.Asuka.web.main:main"
@@ -102,7 +103,7 @@ pattern = '__version__ = "(?P<version>.*)"'
 [tool.uv]
 default-groups = ["dev", "test"]
 index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-# 排除 `opencv-python`, 强制使用 `opencv-contrib-python`
+# 排除 `opencv-python` 其他版本, 强制使用 `opencv-contrib-python`
 exclude-dependencies = ["opencv-python", "opencv-python-headless", "opencv-contrib-python-headless"]
 
 [[tool.uv.index]]
@@ -137,7 +138,7 @@ skip-magic-trailing-comma = true
 line-length = 120
 indent-width = 4
 target-version = "py312"
-extend-exclude = ["typings"]
+extend-exclude = ["typings", ".venv"]
 
 [tool.ruff.lint]
 # https://docs.astral.sh/ruff/rules/
