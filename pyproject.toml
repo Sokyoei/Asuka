@@ -9,24 +9,24 @@ authors = [{ name = "Sokyoei" }]
 license = { text = "MIT" }
 dependencies = [
     # data analysis
-    "numpy",
-    "scipy",
-    "matplotlib",
-    "polars",
-    "pandas",
+    "numpy>=2.3.5",
+    "scipy>=1.17.1",
+    "matplotlib>=3.10.8",
+    "polars>=1.39.3",
+    "pandas>=2.3.3",
     # vision
-    "pillow",
-    "opencv-contrib-python",
-    "scikit-image",
+    "pillow>=12.3.0",
+    "opencv-contrib-python>=4.10.0.84",
+    "scikit-image>=0.25.2",
     # utils
-    "loguru",
-    "pydantic-settings",
+    "loguru>=0.7.3",
+    "pydantic-settings>=2.7.1",
     # pytorch
     "torch",
     "torchvision",
     "torchaudio",
     # async
-    "asgiref",
+    "asgiref>=3.11.1",
 ]
 requires-python = ">=3.12"
 
