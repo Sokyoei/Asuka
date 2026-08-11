@@ -1,35 +1,60 @@
-PROJECT=Ahri.Asuka
-VERSION=0.0.1
+PROJECT := Asuka
+VERSION = 1.0.0
 
-CC=gcc
-CXX=g++
-STDC=c11
-STDCXX=c++20
+ROOT := $(shell pwd)
 
-CFLAGS=-std=$(STDC) -Wall
-CXXFLAGS=-std=$(STDCXX) -Wall
+PKGS := fmt
 
-ROOT=$(shell pwd)
+# compiler and flags
+CC := gcc
+CXX := g++
+NVCC := nvcc
+STDC := c11
+STDCXX := c++20
+STDNVCC := c++20
 
-export CC CXX CFLAGS CXXFLAGS ROOT
+PKG_CFLAGS := $(shell pkg-config --cflags $(PKGS))
+PKG_LIBS := $(shell pkg-config --libs $(PKGS))
 
-all: opencv_learn onnx_learn opencv_learn-% onnx_learn-%
+CPPFLAGS := -I$(ROOT) -I$(ROOT)/include/ $(PKG_CFLAGS)
+CFLAGS := -std=$(STDC) -Wall
+CXXFLAGS := -std=$(STDCXX) -Wall
+CUFLAGS := -std=$(STDNVCC) -Wall -Xcompiler -fPIC
+LDFLAGS :=
+LIBS := $(PKG_LIBS)
 
-# 或者 $(MAKE) -C opencv_learn
-opencv_learn:
-	cd opencv_learn && $(MAKE)
+export CC CXX NVCC CPPFLAGS CFLAGS CXXFLAGS CUFLAGS LDFLAGS LIBS ROOT
 
-opencv_learn-%:
-	$(MAKE) -C opencv_learn $*
+EXCLUDE_DIRS := deepstream_learning
+VALID_SUBDIRS := $(shell find learning -maxdepth 1 -type d -name '*_learning' -exec test -f {}/Makefile \; -print)
+VALID_SUBDIRS := $(filter-out $(addprefix learning/, $(EXCLUDE_DIRS)), $(VALID_SUBDIRS))
+VALID_TARGETS := $(patsubst %_learning, %_main, $(notdir $(VALID_SUBDIRS)))
 
-onnx_learn:
-	cd onnx_learn && $(MAKE)
+all: $(VALID_TARGETS)
 
-onnx_learn-%:
-	$(MAKE) -C onnx_learn $*
+%_main:
+	@dir=learning/$*_learning; \
+	if [ -d "$$dir" ] && [ -f "$$dir/Makefile" ]; then \
+		$(MAKE) -C $$dir $@; \
+	else \
+		echo "Warning: $$dir/Makefile not found, skipping target $@"; \
+	fi
 
-clean: opencv_learn onnx_learn
-	cd opencv_learn && $(MAKE) clean
-	cd onnx_learn && $(MAKE) clean
+format:
+	mbake format Makefile
 
-.PHONY: all clean opencv_learn onnx_learn opencv_learn-% onnx_learn-%
+	@for dir in $(VALID_SUBDIRS); do \
+		if [ -f "$$dir/Makefile" ]; then \
+			echo "Formatting $$dir/Makefile"; \
+			(cd $$dir && mbake format Makefile); \
+		fi \
+	done
+
+clean:
+	@for dir in $(VALID_SUBDIRS); do \
+		if [ -d "$$dir" ] && [ -f "$$dir/Makefile" ]; then \
+			$(MAKE) -C $$dir clean; \
+		fi \
+	done
+
+.PHONY: all clean %_main format

@@ -82,6 +82,70 @@ out
 /typings/
 
 ########################################################################################################################
+# C++
+########################################################################################################################
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+*.so.*
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build directories
+build/
+Build/
+build-*/
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*.swp
+
+# vcpkg
+vcpkg_installed/
+
+# debug information files
+*.dwo
+
+# test output & cache
+Testing/
+.cache/
+
+########################################################################################################################
 # CMake
 ########################################################################################################################
 CMakeLists.txt.user
@@ -89,10 +153,7 @@ CMakeCache.txt
 CMakeFiles
 CMakeScripts
 Testing
-Makefile
-!/Makefile
-!/cc/Makefile
-!/linux/Makefile
+# Makefile
 cmake_install.cmake
 install_manifest.txt
 compile_commands.json
@@ -262,20 +323,6 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
-
-########################################################################################################################
-# VS Code
-########################################################################################################################
-# VS Code files for those working on multiple tools
-.vscode/*
-!.vscode/extensions.json
-!.vscode/launch.json
-!.vscode/settings.json
-!.vscode/tasks.json
-*.code-workspace
-
-# VSCode Extension `Code Runner` temp file
-tempCodeRunnerFile.*
 
 ########################################################################################################################
 # Visual Studio

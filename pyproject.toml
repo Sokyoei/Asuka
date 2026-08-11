@@ -83,7 +83,7 @@ ahri_asuka_webapp = "Ahri.Asuka.web.main:main"
 
 [dependency-groups]
 build = ["build", "hatch"]
-dev = ["isort", "ruff", "black", "pre-commit"]
+dev = ["isort", "ruff", "black", "pre-commit", "mbake>=1.4.6"]
 test = ["pytest", "pytest-asyncio", "tox", "coverage"]
 torchtools = ["torchinfo", "torchview"]
 # genetate stubs for pybind11 extensions
