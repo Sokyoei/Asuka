@@ -4,12 +4,6 @@ NVCC ?= nvcc
 
 EXECUTABLE := opencv_main
 
-INCS := $(wildcard *.h) $(wildcard *.hpp) $(wildcard *.cuh)
-SRCS := $(wildcard *.c) $(wildcard *.cpp) $(wildcard *.cu)
-OBJS := $(SRCS:.c=.o)
-OBJS := $(OBJS:.cpp=.o)
-OBJS := $(OBJS:.cu=.o)
-
 PKGS := opencv4
 include $(ROOT)/common.mk
 

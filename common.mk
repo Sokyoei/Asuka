@@ -5,6 +5,12 @@ LIBS  += $(shell pkg-config --libs $(PKGS))
 endif
 
 # common
+INCS := $(wildcard *.h) $(wildcard *.hpp) $(wildcard *.cuh)
+SRCS := $(wildcard *.c) $(wildcard *.cpp) $(wildcard *.cu)
+OBJS := $(SRCS:.c=.o)
+OBJS := $(OBJS:.cpp=.o)
+OBJS := $(OBJS:.cu=.o)
+
 %.o: %.c $(INCS) Makefile
 	$(CC) -c -o $@ $(CPPFLAGS) $(CFLAGS) $<
 

@@ -2,8 +2,10 @@ PROJECT := Asuka
 VERSION = 1.0.0
 
 ROOT := $(shell pwd)
-
-PKGS := fmt
+# https://github.com/Sokyoei/Ceceilia
+CECEILIA_DIR ?= ../Ceceilia
+CECEILIA_DIR := $(abspath $(CECEILIA_DIR))
+PKGS := fmt spdlog
 
 # compiler and flags
 CC := gcc
@@ -16,7 +18,8 @@ STDNVCC := c++20
 PKG_CFLAGS := $(shell pkg-config --cflags $(PKGS))
 PKG_LIBS := $(shell pkg-config --libs $(PKGS))
 
-CPPFLAGS := -I$(ROOT) -I$(ROOT)/include/ $(PKG_CFLAGS)
+CPPFLAGS := -I$(ROOT) -I$(ROOT)/include/ $(PKG_CFLAGS) -I$(CECEILIA_DIR)/include/
+CPPFLAGS += -DSPDLOG_FMT_EXTERNAL
 CFLAGS := -std=$(STDC) -Wall
 CXXFLAGS := -std=$(STDCXX) -Wall
 CUFLAGS := -std=$(STDNVCC) -Wall -Xcompiler -fPIC

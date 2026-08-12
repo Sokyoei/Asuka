@@ -90,6 +90,20 @@
         "xutility": "cpp"
     },
     "python.analysis.autoImportCompletions": true,
+    "makefile.configurations": [
+        {
+            "name": "Debug",
+            "makeArgs": [
+                "_DEBUG=1",
+            ]
+        },
+        {
+            "name": "Release",
+            "makeArgs": [
+                "_DEBUG=0",
+            ]
+        }
+    ],
     "cmake.configureArgs": [
         "-DCMAKE_TOOLCHAIN_FILE=D:/vcpkg/scripts/buildsystems/vcpkg.cmake"
     ]
