@@ -28,7 +28,7 @@
 #include <fmt/core.h>
 #include <fmt/ranges.h>
 #include <fmt/std.h>
-#ifdef USE_OPENCV
+#ifdef ASUKA_USE_OPENCV
 #include <opencv2/opencv.hpp>
 #endif
 
@@ -228,7 +228,7 @@ public:
         return output_host;
     }
 
-#ifdef USE_OPENCV
+#ifdef ASUKA_USE_OPENCV
     std::vector<float> inference(const cv::Mat& image) {
         if (!_engine_loaded) {
             this->initialize_engine();
@@ -238,7 +238,7 @@ public:
         std::memcpy(input_host.data(), image.data, image.total() * image.channels() * sizeof(float));
         return inference(input_host);
     }
-#endif  // USE_OPENCV
+#endif  // ASUKA_USE_OPENCV
 
 // function alias
 #define onnx2engine build

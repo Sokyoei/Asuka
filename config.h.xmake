@@ -4,14 +4,14 @@
 ${define ASUKA_ROOT}
 
 // libraries
-${define USE_FMT}
-${define USE_SPDLOG}
-${define USE_NLOHMANN_JSON}
-${define USE_TOMLPLUSPLUS}
-${define USE_TINYXML2}
-${define USE_YAML_CPP}
-${define USE_GTEST}
-${define USE_BOOST}
-${define USE_OPENCV}
+${define ASUKA_USE_FMT}
+${define ASUKA_USE_SPDLOG}
+${define ASUKA_USE_NLOHMANN_JSON}
+${define ASUKA_USE_TOMLPLUSPLUS}
+${define ASUKA_USE_TINYXML2}
+${define ASUKA_USE_YAML_CPP}
+${define ASUKA_USE_GTEST}
+${define ASUKA_USE_BOOST}
+${define ASUKA_USE_OPENCV}
 
 #endif  // !CONFIG_H

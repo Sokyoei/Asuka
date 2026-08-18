@@ -16,7 +16,7 @@
 #include "Ahri/Asuka.hpp"
 
 #include <openvino/openvino.hpp>
-#ifdef USE_OPENCV
+#ifdef ASUKA_USE_OPENCV
 #include <opencv2/opencv.hpp>
 #endif
 
@@ -101,7 +101,7 @@ public:
         return output_data;
     }
 
-#ifdef USE_OPENCV
+#ifdef ASUKA_USE_OPENCV
     /**
      * @brief 使用 cv::Mat 输入进行推理
      * @param input_mat 输入图像 RGB

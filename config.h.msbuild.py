@@ -13,15 +13,15 @@ def main():
     asuka_root = str(Path(solution_dir)).replace('\\', '/')
     text = text.replace('@@ASUKA_ROOT@@', f'"{asuka_root}"')
 
-    # HAS_CUDA
+    # ASUKA_HAVE_CUDA
     try:
         ret = subprocess.run(["nvcc", "--version"], check=True)
         ret.check_returncode()
-        has_cuda = 1
+        ASUKA_HAVE_CUDA = 1
     except Exception:
-        has_cuda = 0
+        ASUKA_HAVE_CUDA = 0
         print("nvcc not found, please install cuda")
-    text = text.replace('@@HAS_CUDA@@', f'{has_cuda}')
+    text = text.replace('@@ASUKA_HAVE_CUDA@@', f'{ASUKA_HAVE_CUDA}')
 
     with open(config_h, 'w') as f:
         f.write(text)

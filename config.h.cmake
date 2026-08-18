@@ -4,23 +4,23 @@
 #cmakedefine ASUKA_ROOT "@ASUKA_ROOT@"
 
 // CUDA support
-#cmakedefine HAS_CUDA
+#cmakedefine ASUKA_HAVE_CUDA
 
 // third libraries
-#cmakedefine USE_FMT
-#cmakedefine USE_SPDLOG
-#cmakedefine USE_OPENCV
-#cmakedefine USE_ONNXRUNTIME
-#cmakedefine USE_TENSORRT
-#cmakedefine USE_OPENVINO
-#cmakedefine USE_REALSENSE2
-#cmakedefine USE_FFMPEG
-#cmakedefine USE_GLAD
-#cmakedefine USE_GLFW3
-#cmakedefine USE_IMGUI
-#cmakedefine USE_GSTREAMER
-#cmakedefine USE_PCL
-#cmakedefine USE_CUDATOOLKIT
-#cmakedefine USE_EIGEN3
+#cmakedefine ASUKA_USE_FMT
+#cmakedefine ASUKA_USE_SPDLOG
+#cmakedefine ASUKA_USE_OPENCV
+#cmakedefine ASUKA_USE_ONNXRUNTIME
+#cmakedefine ASUKA_USE_TENSORRT
+#cmakedefine ASUKA_USE_OPENVINO
+#cmakedefine ASUKA_USE_REALSENSE2
+#cmakedefine ASUKA_USE_FFMPEG
+#cmakedefine ASUKA_USE_GLAD
+#cmakedefine ASUKA_USE_GLFW3
+#cmakedefine ASUKA_USE_IMGUI
+#cmakedefine ASUKA_USE_GSTREAMER
+#cmakedefine ASUKA_USE_PCL
+#cmakedefine ASUKA_USE_CUDATOOLKIT
+#cmakedefine ASUKA_USE_EIGEN3
 
 #endif  // !CONFIG_H

@@ -4,23 +4,23 @@
 #define ASUKA_ROOT @@ASUKA_ROOT@@
 
 // CUDA support
-#define HAS_CUDA @@HAS_CUDA@@
+#define ASUKA_HAVE_CUDA @@ASUKA_HAVE_CUDA@@
 
 // third libraries
-#define USE_FMT
-#define USE_SPDLOG
-#define USE_OPENCV
-#define USE_ONNXRUNTIME
-#define USE_TENSORRT
-#define USE_OPENVINO
-#define USE_REALSENSE2
-#define USE_FFMPEG
-#define USE_GLAD
-#define USE_GLFW3
-#define USE_IMGUI
-#define USE_GSTREAMER
-#define USE_PCL
-#define USE_CUDATOOLKIT
-#define USE_EIGEN3
+#define ASUKA_USE_FMT
+#define ASUKA_USE_SPDLOG
+#define ASUKA_USE_OPENCV
+#define ASUKA_USE_ONNXRUNTIME
+#define ASUKA_USE_TENSORRT
+#define ASUKA_USE_OPENVINO
+#define ASUKA_USE_REALSENSE2
+#define ASUKA_USE_FFMPEG
+#define ASUKA_USE_GLAD
+#define ASUKA_USE_GLFW3
+#define ASUKA_USE_IMGUI
+#define ASUKA_USE_GSTREAMER
+#define ASUKA_USE_PCL
+#define ASUKA_USE_CUDATOOLKIT
+#define ASUKA_USE_EIGEN3
 
 #endif  // !CONFIG_H

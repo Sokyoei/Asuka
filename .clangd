@@ -17,30 +17,12 @@ CompileFlags:
   Add:
     - -I.
     - -I./include
-    ####################################################################################################################
-    # Windows
-    ####################################################################################################################
-    # Windows vcpkg
-    - /ID:/vcpkg/installed/x64-windows/include
-    - /ID:/vcpkg/installed/x64-windows/include/opencv4
-    # Windows Macro definitions
-    - /DGLOG_USE_GLOG_EXPORT
-    # Windows MSVC flags
-    - /std:c++latest
-    # Windows MSVC 3rd include dirs
-    - /ID:/onnxruntime-win-x64-1.16.0/include
-    - /ID:/openvino_toolkit_windows_2025.0.0.17942.1f68be9f594_x86_64/runtime/include
-    - /ID:/Andromeda/Sokyoei/Ceceilia
-    - /ID:/Andromeda/Sokyoei/Ceceilia/include
-    ####################################################################################################################
-    # Linux
-    ####################################################################################################################
-    # Linux vcpkg
-    - -isystem/home/Ahri/vcpkg/installed/x64-linux/include
-    - -isystem/home/Ahri/vcpkg/installed/x64-linux/include/opencv4
-    # Linux GCC flags
     - -std=c++23
-  Compiler: cl
+  Remove:
+    # NOTE: for linux gcc
+    - -fmodules-ts
+    - -fmodule-mapper*
+    - -fdeps-format=p1689r5
 
 ---
 # CUDA
@@ -53,31 +35,16 @@ CompileFlags:
   Add:
     - -I.
     - -I./include
-    ####################################################################################################################
-    # Windows
-    ####################################################################################################################
-    # Windows CUDA include
-    - --cuda-path=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.6
-    - -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.6/include"
-    # Windows vcpkg
-    - -ID:/vcpkg/installed/x64-windows/include
-    # Windows MSVC flags
-    - /std:c++latest
-    ####################################################################################################################
-    # Linux
-    ####################################################################################################################
-    # Linux CUDA include
-    - --cuda-path=/usr/local/cuda
-    - -I/usr/local/cuda/include
-    # Linux vcpkg
-    - -isystem/home/Ahri/vcpkg/installed/x64-linux/include
-    # Linux GCC flags
-    - -std=c++20
+    - -x
+    - cuda
+    - -std=c++23
+    # NOTE: linux gcc settings, move it to global settings
+    # - -stdlib=libstdc++
+    # - --gcc-toolchain=/usr/local
   Remove:
     - -forward-unknown-to-host-compiler
     - --generate-code*
     - -Xcompiler=*
-  Compiler: nvcc
 
 ---
 # COMMON

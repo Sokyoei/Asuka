@@ -24,7 +24,7 @@
 #include <fmt/ranges.h>
 #include <fmt/std.h>
 #include <onnxruntime_cxx_api.h>
-#ifdef USE_OPENCV
+#ifdef ASUKA_USE_OPENCV
 #include <opencv2/opencv.hpp>
 #endif
 
@@ -97,7 +97,7 @@ public:
         return result;
     }
 
-#ifdef USE_OPENCV
+#ifdef ASUKA_USE_OPENCV
     std::vector<float> inference(cv::Mat& image) {
         int data_length = image.total() * image.channels();
         std::vector<float> input_data(data_length);
