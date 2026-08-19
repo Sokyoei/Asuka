@@ -75,6 +75,10 @@ llm = [
 ]
 mcp = ["mcp[cli]", "httpx"]
 agent = ["langchain", "langchain-community", "langchain-openai", "langchain-text-splitters"]
+# jupytext convert python to jupyter notebook
+# ```
+# jupytext --set-formats ipynb,py:percent .\your_python.py
+# ```
 jupyter = ["jupyterlab", "jupytext"]
 roboflow = ["inference>=1.3.7", "supervision>=0.30.0", "trackers>=2.4.0"]
 
@@ -186,3 +190,7 @@ pythonVersion = "3.12"
 ignore = ["typings"]
 typeCheckingMode = "basic"
 exclude = ["**/node_modules", "**/__pycache__", "**/.*", ".venv", "learning/opencv_learning/learnopencv"]
+
+[tool.jupytext]
+formats = "ipynb,py:percent"
+notebook_metadata_filter = "-all,jupytext"

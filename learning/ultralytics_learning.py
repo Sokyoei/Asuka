@@ -3,6 +3,7 @@
 #   jupytext:
 #     cell_metadata_filter: -all
 #     formats: ipynb,py:percent
+#     notebook_metadata_filter: -all,jupytext
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -11,7 +12,10 @@
 # ---
 
 # %%
+from typing import cast
+
 import cv2
+import matplotlib.pyplot as plt
 from ultralytics import ASSETS, YOLO
 from ultralytics.engine.results import Results
 
@@ -22,10 +26,13 @@ from Ahri.Asuka.config.config import settings
 
 # %%
 model = YOLO(settings.MODELS_DIR / "yolo26n.pt")
-results: Results = model(ASSETS / "bus.jpg")
-cv2.namedWindow("ultralytics", cv2.WINDOW_FREERATIO)
-cv2.imshow("ultralytics", results[0].plot())
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+results = model(ASSETS / "bus.jpg")
+results = cast(Results, results)
+# cv2.namedWindow("ultralytics", cv2.WINDOW_FREERATIO)
+# cv2.imshow("ultralytics", results[0].plot())
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
 
-# %%
+rgb_image = cv2.cvtColor(results[0].plot(), cv2.COLOR_BGR2RGB)
+plt.imshow(rgb_image)
+plt.axis("off")
