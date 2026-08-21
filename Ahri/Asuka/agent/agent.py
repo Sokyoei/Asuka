@@ -1,4 +1,4 @@
-from typing import List, Optional
+from uuid import uuid4
 
 from langchain_classic.memory import ConversationTokenBufferMemory
 from langchain_classic.memory.chat_memory import BaseChatMemory
@@ -15,15 +15,15 @@ from Ahri.Asuka.agent.action import Action
 from Ahri.Asuka.agent.utils import THOUGHT_COLOR, ColoredPrintHandler
 
 
-class Agent(object):
+class Agent:
 
     def __init__(
         self,
         llm: BaseChatModel,
-        tools: List[BaseTool],
+        tools: list[BaseTool],
         work_dir: str,
         main_prompt_file: str,
-        max_thought_steps: Optional[int] = 10,
+        max_thought_steps: int = 10,
     ) -> None:
         self.llm = llm
         self.tools = tools
@@ -43,18 +43,17 @@ class Agent(object):
         self.verbose_handler = ColoredPrintHandler(color=THOUGHT_COLOR)
 
     def _init_prompt_templates(self):
-        with open(self.main_prompt_file, "r", encoding="utf8") as f:
+        with open(self.main_prompt_file, encoding="utf8") as f:
             self.prompt = ChatPromptTemplate.from_messages(
                 [MessagesPlaceholder(variable_name="chat_history"), HumanMessagePromptTemplate.from_template(f.read())]
             ).partial(
                 work_dir=self.work_dir,
                 tools=render_text_description(self.tools),
                 tool_names=",".join([tool.name for tool in self.tools]),
-                format_instruuctions=self.output_parser.get_format_instructions(),
+                format_instructions=self.output_parser.get_format_instructions(),
             )
 
     def _init_chains(self):
-        pass
         self.main_chains = self.prompt | self.llm | StrOutputParser()
 
     def _step(self, task, short_term_memory, chat_history, verbose=False) -> tuple[Action, str]:
@@ -74,7 +73,7 @@ class Agent(object):
 
     def _format_short_term_memory(self, memory: BaseChatMemory) -> str:
         messages = memory.chat_memory.messages
-        string_messages = [messages[i].content for i in range(1, len(messages))]
+        string_messages = [str(messages[i].content) for i in range(1, len(messages))]
         return "\n".join(string_messages)
 
     def _find_tool(self, name) -> BaseTool | None:
@@ -98,7 +97,7 @@ class Agent(object):
                 observation = f"ERROR: {e=}, args: {action.args}"
         return observation
 
-    def run(self, task: str, chat_history: ChatMessageHistory, verbose: False):
+    def run(self, task: str, chat_history: ChatMessageHistory, verbose: bool = False):
         # 初始化短时记忆
         short_term_memory = ConversationTokenBufferMemory(llm=self.llm, max_token_limit=4000)
         # 思考步数
@@ -121,10 +120,10 @@ class Agent(object):
 
             observation = self._exec_action(action)
             if verbose:
-                self.verbose_handler.on_tool_end(observation)
+                self.verbose_handler.on_tool_end(observation, run_id=uuid4())
 
             # 更新短时记忆
-            short_term_memory.save_context({"input": response, "output": "\n返回结果\n" + observation})
+            short_term_memory.save_context(inputs={"input": response}, outputs={"output": "\n返回结果\n" + observation})
 
             thought_step += 1
 

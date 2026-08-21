@@ -1,5 +1,4 @@
 import os
-from typing import List
 
 import pandas as pd
 from langchain_classic.chains.retrieval_qa.base import RetrievalQA
@@ -12,7 +11,7 @@ from langchain_openai.llms import OpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
-class FileLoadFactory(object):
+class FileLoadFactory:
     @staticmethod
     def get_loader(filename: str):
         ext = get_file_extension(filename)
@@ -28,7 +27,7 @@ def get_file_extension(filename: str):
     return filename.split(".")[-1]
 
 
-def load_docs(filename: str) -> List[Document]:
+def load_docs(filename: str) -> list[Document]:
     file_loader = FileLoadFactory.get_loader(filename)
     pages = file_loader.load_and_split()
     return pages
@@ -46,7 +45,7 @@ def ask_document(filename: str, query: str) -> str:
         return "无法读取文档内容"
     db = Chroma.from_documents(documents, OpenAIEmbeddings(model="text-embedding-ada-002"))
     qa_chain = RetrievalQA.from_chain_type(
-        llm=OpenAI(temperature=0, model_kwargs={"seed": 18}, chain_type="stuff", retriever=db.as_retriever())
+        llm=OpenAI(temperature=0, model_kwargs={"seed": 18}), chain_type="stuff", retriever=db.as_retriever()
     )
     response = qa_chain.run(query + "(请用中文回答)")
     return response

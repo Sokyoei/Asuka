@@ -1,8 +1,8 @@
-from typing import Any, Dict, Optional
+from typing import Any
 
 from pydantic import BaseModel, Field
 
 
 class Action(BaseModel):
     name: str = Field(description="tool name")
-    args: Optional[Dict[str, Any]] = Field(description="tool input arguments")
+    args: dict[str, Any] | None = Field(description="tool input arguments")
