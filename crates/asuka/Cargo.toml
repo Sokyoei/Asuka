@@ -1,0 +1,9 @@
+[package]
+name = "asuka"
+version.workspace = true
+edition.workspace = true
+repository.workspace = true
+authors.workspace = true
+license-file.workspace = true
+
+[dependencies]
