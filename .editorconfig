@@ -13,7 +13,20 @@ insert_final_newline = true
 
 max_line_length = 120
 
+# JetBrains IDEs
 ij_editorconfig_space_after_comma = false
+# Comments
+ij_any_line_comment_at_first_column = false
+ij_any_line_comment_add_space = true
+ij_any_block_comment_add_space = true
+# CMake
+ij_cmake_space_before_for_parentheses = false
+ij_cmake_space_before_while_parentheses = false
+ij_cmake_space_before_if_parentheses = false
+ij_cmake_indent_size = 4
+# C/C++
+ij_c_tag_prefix_of_block_comment = at
+ij_c_tag_prefix_of_line_comment = at
 
 [*.{sln,vcxproj,vcxproj.filters}]
 end_of_line = crlf
@@ -27,4 +40,7 @@ indent_style = tab
 tab_width = 4
 
 [*.{yaml,yml,clang-format,clang-tidy,clangd}]
+indent_size = 2
+
+[package.json]
 indent_size = 2
