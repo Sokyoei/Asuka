@@ -98,10 +98,10 @@ extensions = ["pybind11-stubgen"]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["Ahri"]
+packages = ["asuka"]
 
 [tool.hatch.version]
-path = "Ahri/Asuka/version.py"
+path = "asuka/version.py"
 pattern = '__version__ = "(?P<version>.*)"'
 
 [tool.uv]
