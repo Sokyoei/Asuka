@@ -1,8 +1,8 @@
 import pytest
 import torch
 
-from Ahri.Asuka.utils import DEVICE
-from Ahri.Asuka.vision.models import vgg11, vgg13, vgg16, vgg19
+from asuka.utils import DEVICE
+from asuka.vision.models import vgg11, vgg13, vgg16, vgg19
 
 
 def test_VGG():

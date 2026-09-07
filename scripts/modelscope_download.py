@@ -4,6 +4,6 @@
 
 from modelscope import snapshot_download
 
-from Ahri.Asuka.config.config import settings
+from asuka.config.config import settings
 
 snapshot_download("your_model_repo_name", cache_dir=settings.MODELS_DIR)

@@ -1,8 +1,8 @@
 import pytest
 import torch
 
-from Ahri.Asuka.nlp.models import RNN
-from Ahri.Asuka.utils import DEVICE
+from asuka.nlp.models import RNN
+from asuka.utils import DEVICE
 
 
 def test_RNN():

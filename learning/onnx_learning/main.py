@@ -16,8 +16,8 @@ import onnx
 import onnxruntime as ort
 from numpy.typing import NDArray
 
-from Ahri.Asuka import ASUKA_ROOT
-from Ahri.Asuka.utils import nms, plot_image, xywh_to_xyxy
+from asuka import ASUKA_ROOT
+from asuka.utils import nms, plot_image, xywh_to_xyxy
 
 # fmt:off
 CLASSES = [

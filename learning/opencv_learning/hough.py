@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 from cv2.typing import MatLike
 
-from Ahri.Asuka.utils.cv2_utils import GREEN, PopstarAhri, img_show
+from asuka.utils.cv2_utils import GREEN, PopstarAhri, img_show
 
 
 @img_show("HoughLines")

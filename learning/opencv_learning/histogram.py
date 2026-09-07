@@ -5,7 +5,7 @@
 import cv2
 from cv2.typing import MatLike
 
-from Ahri.Asuka.utils.cv2_utils import PopstarAhri, img_show
+from asuka.utils.cv2_utils import PopstarAhri, img_show
 
 
 @img_show("Ahri_equalizeHist")

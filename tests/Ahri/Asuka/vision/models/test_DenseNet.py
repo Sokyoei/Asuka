@@ -1,8 +1,8 @@
 import pytest
 import torch
 
-from Ahri.Asuka.utils import DEVICE
-from Ahri.Asuka.vision.models import densenet121, densenet161, densenet169, densenet201, densenet264
+from asuka.utils import DEVICE
+from asuka.vision.models import densenet121, densenet161, densenet169, densenet201, densenet264
 
 
 def test_DenseNet():

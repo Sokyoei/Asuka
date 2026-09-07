@@ -1,8 +1,8 @@
 import pytest
 import torch
 
-from Ahri.Asuka.utils import DEVICE
-from Ahri.Asuka.vision.models import (
+from asuka.utils import DEVICE
+from asuka.vision.models import (
     efficientnet_b0,
     efficientnet_b1,
     efficientnet_b2,

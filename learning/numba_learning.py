@@ -12,8 +12,8 @@
 # ---
 
 # %%
-from Ahri.Paladin.utils import timer
 from numba import jit
+from paladin.utils import timer
 
 # %% [markdown]
 # [Numba](https://numba.pydata.org/)

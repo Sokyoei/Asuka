@@ -1,6 +1,6 @@
 import pytest
 
-from Ahri.Asuka.llm.ollama_provider import AsyncOllamaProvider, OllamaProvider
+from asuka.llm.ollama_provider import AsyncOllamaProvider, OllamaProvider
 
 
 def test_ollama_provider():

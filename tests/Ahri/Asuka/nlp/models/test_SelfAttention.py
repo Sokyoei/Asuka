@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from Ahri.Asuka.nlp.models import SelfAttention
+from asuka.nlp.models import SelfAttention
 
 
 def test_SelfAttention():

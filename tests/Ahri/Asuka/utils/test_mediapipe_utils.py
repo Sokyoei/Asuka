@@ -1,6 +1,6 @@
 import cv2
 
-from Ahri.Asuka.utils.mediapipe_utils import MediaPipeHand
+from asuka.utils.mediapipe_utils import MediaPipeHand
 
 
 def test_MediaPipeHand(index):
@@ -13,7 +13,7 @@ def test_MediaPipeHand(index):
         ret, frame = capture.read()
         if not ret:
             break
-        frame, points = hand.inference(frame)
+        frame, _points = hand.inference(frame)
         cv2.imshow("MediaPipeHand", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

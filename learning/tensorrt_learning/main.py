@@ -3,9 +3,9 @@ import tensorrt as trt
 from cv2.typing import MatLike
 from loguru import logger
 
-from Ahri.Asuka import ASUKA_ROOT
-from Ahri.Asuka.utils.tensorrt_utils import TensorRTModel
-from Ahri.Asuka.utils.yolo_utils import COCO_CLASSES, plot_image, postprocess_ultralytics, preprocess
+from asuka import ASUKA_ROOT
+from asuka.utils.tensorrt_utils import TensorRTModel
+from asuka.utils.yolo_utils import COCO_CLASSES, plot_image, postprocess_ultralytics, preprocess
 
 
 def yolov5su_example():

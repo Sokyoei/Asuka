@@ -1,8 +1,8 @@
 import pytest
 import torch
 
-from Ahri.Asuka.utils import DEVICE
-from Ahri.Asuka.vision.models import resnet18, resnet34, resnet50, resnet101, resnet152
+from asuka.utils import DEVICE
+from asuka.vision.models import resnet18, resnet34, resnet50, resnet101, resnet152
 
 
 def test_ResNet():

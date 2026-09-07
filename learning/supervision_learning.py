@@ -21,7 +21,7 @@ import supervision as sv
 from numpy.typing import NDArray
 from ultralytics import ASSETS, YOLO
 
-from Ahri.Asuka.config.config import settings
+from asuka.config.config import settings
 
 # %% [markdown]
 # [supervision](https://github.com/roboflow/supervision)

@@ -1,7 +1,7 @@
 import numpy as np
 
-from Ahri.Asuka import ASUKA_ROOT
-from Ahri.Asuka.utils.tensorrt_utils import TensorRTModel
+from asuka import ASUKA_ROOT
+from asuka.utils.tensorrt_utils import TensorRTModel
 
 
 def main():
@@ -10,7 +10,7 @@ def main():
     model = TensorRTModel(model_path)
 
     # 生成随机输入数据进行测试 (根据模型的输入形状调整)
-    input_data = np.random.random(model.input_shape).astype(np.float32)
+    input_data = np.random.random(model.input_shape).astype(np.float32)  # noqa: NPY002
 
     # 进行推理并获取结果
     output_data = model.inference(input_data)

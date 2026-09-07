@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 from cv2.typing import MatLike
 
-from Ahri.Asuka.utils.cv2_utils import PopstarAhri, show_image
+from asuka.utils.cv2_utils import PopstarAhri, show_image
 
 
 def affine(img: MatLike) -> MatLike:

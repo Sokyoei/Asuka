@@ -1,7 +1,7 @@
 import pytest
 import torch
 
-from Ahri.Asuka.nlp.models import MultiHeadAttention
+from asuka.nlp.models import MultiHeadAttention
 
 
 def test_MultiHeadAttention():

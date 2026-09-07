@@ -4,7 +4,7 @@ tensorboard --logdir=your_tensorboard_log_dir --host=127.0.0.1
 
 import tensorflow as tf
 
-from Ahri.Asuka.config.config import settings
+from asuka.config.config import settings
 
 with tf.name_scope("a"):
     input1 = tf.constant([1.0, 2.0, 3.0], name="input1")

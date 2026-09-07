@@ -4,8 +4,8 @@
 
 import cv2
 
-from Ahri.Asuka import ASUKA_ROOT
-from Ahri.Asuka.utils.cv2_utils import img_show
+from asuka import ASUKA_ROOT
+from asuka.utils.cv2_utils import img_show
 
 
 @img_show("match template")

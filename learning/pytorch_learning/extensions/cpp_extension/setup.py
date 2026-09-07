@@ -4,7 +4,7 @@ import platform
 from setuptools import setup
 from torch.utils.cpp_extension import BuildExtension, CppExtension
 
-from Ahri.Asuka import ASUKA_ROOT
+from asuka import ASUKA_ROOT
 
 if platform.system() == "Windows":
     os.environ["DISTUTILS_USE_SDK"] = "1"

@@ -1,8 +1,8 @@
 import pytest
 import torch
 
-from Ahri.Asuka.nlp.models import LSTM
-from Ahri.Asuka.utils import DEVICE
+from asuka.nlp.models import LSTM
+from asuka.utils import DEVICE
 
 
 def test_LSTM():

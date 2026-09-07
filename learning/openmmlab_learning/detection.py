@@ -12,7 +12,7 @@ from pathlib import Path
 import mmdet
 from mmdet.apis import inference_detector, init_detector
 
-from Ahri.Asuka import SOKYOEI_DATA_DIR
+from asuka import SOKYOEI_DATA_DIR
 
 MMDET_ROOT = Path(mmdet.__file__).parent
 

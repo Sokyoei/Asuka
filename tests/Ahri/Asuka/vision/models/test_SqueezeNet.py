@@ -1,8 +1,8 @@
 import pytest
 import torch
 
-from Ahri.Asuka.utils import DEVICE
-from Ahri.Asuka.vision.models import squeezenet_v1_0, squeezenet_v1_1
+from asuka.utils import DEVICE
+from asuka.vision.models import squeezenet_v1_0, squeezenet_v1_1
 
 
 def test_SqueezeNet():

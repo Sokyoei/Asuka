@@ -5,7 +5,7 @@ threshold 阈值
 import cv2
 from cv2.typing import MatLike
 
-from Ahri.Asuka.utils.cv2_utils import PopstarAhri, img_show
+from asuka.utils.cv2_utils import PopstarAhri, img_show
 
 PopstarAhriGray = cv2.cvtColor(PopstarAhri, cv2.COLOR_BGR2GRAY)
 

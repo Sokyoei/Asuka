@@ -9,7 +9,7 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 from numpy.typing import NDArray
 
-from Ahri.Asuka import ASUKA_ROOT
+from asuka import ASUKA_ROOT
 
 MARGIN = 20  # pixels
 ROW_SIZE = 20  # pixels

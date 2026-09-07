@@ -1,6 +1,6 @@
 import pytest
 
-from Ahri.Asuka.llm.openai_provider import AsyncOpenAIProvider, OpenAIProvider
+from asuka.llm.openai_provider import AsyncOpenAIProvider, OpenAIProvider
 
 
 def test_openai_provider():

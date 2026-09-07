@@ -1,8 +1,8 @@
 import pytest
 import torch
 
-from Ahri.Asuka.utils import DEVICE
-from Ahri.Asuka.vision.models import lenet5
+from asuka.utils import DEVICE
+from asuka.vision.models import lenet5
 
 
 def test_LeNet5():

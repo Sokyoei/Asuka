@@ -1,6 +1,6 @@
 import cv2
 
-from Ahri.Asuka import SOKYOEI_DATA_DIR
+from asuka import SOKYOEI_DATA_DIR
 
 
 def main():

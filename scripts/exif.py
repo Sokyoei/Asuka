@@ -6,10 +6,10 @@ from pprint import pprint
 from PIL import Image
 from PIL.ExifTags import TAGS
 
-from Ahri.Asuka import SOKYOEI_DATA_DIR
+from asuka import SOKYOEI_DATA_DIR
 
 
-class EXIF(object):
+class EXIF:
 
     def __init__(self, args: Namespace) -> None:
         self.args = args

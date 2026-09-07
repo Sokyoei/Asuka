@@ -5,7 +5,7 @@ from anomalib.data import ImageBatch, PredictDataset
 from anomalib.engine import Engine
 from anomalib.models import Patchcore
 
-from Ahri.Asuka.config.config import settings
+from asuka.config.config import settings
 
 # 2. Initialize the model and load weights
 model = Patchcore(pre_trained=False)

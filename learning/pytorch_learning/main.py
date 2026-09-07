@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 from torchvision.models import resnet18
 
-from Ahri.Asuka.config.config import settings
+from asuka.config.config import settings
 
 
 def main():

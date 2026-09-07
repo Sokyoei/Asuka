@@ -1,9 +1,9 @@
 import cv2
 
-from Ahri.Asuka.camera.handler import SaveHandler
-from Ahri.Asuka.camera.opencv import OpenCVCamera
-from Ahri.Asuka.camera.scheduler import FrameScheduler
-from Ahri.Asuka.config.config import settings
+from asuka.camera.handler import SaveHandler
+from asuka.camera.opencv import OpenCVCamera
+from asuka.camera.scheduler import FrameScheduler
+from asuka.config.config import settings
 
 
 def test_opencv():
