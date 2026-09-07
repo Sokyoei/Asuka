@@ -23,7 +23,7 @@ class ExportONNX:
 
         torch.onnx.export(
             torch.load(self.model_path),
-            torch.randn(1, 3, 640, 640),
+            (torch.randn(1, 3, 640, 640),),
             input_names=self.input_name,
             output_names=self.output_name,
             verbose=True,
