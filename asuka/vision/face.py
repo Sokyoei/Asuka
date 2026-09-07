@@ -8,7 +8,7 @@ from loguru import logger
 from numpy.typing import NDArray
 
 from asuka import ASUKA_ROOT
-from asuka.config.config import settings
+from asuka.config import settings
 from asuka.constants import IMAGE_SUFFIXES
 from asuka.utils.cv2_utils import imread
 

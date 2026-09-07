@@ -10,7 +10,7 @@ from transformers.trainer_utils import SaveStrategy
 from transformers.training_args import OptimizerNames
 from trl import SFTTrainer
 
-from asuka.config.config import settings
+from asuka.config import settings
 from asuka.utils import DEVICE
 
 MODEL_DIR = settings.MODELS_DIR / "your_local_model_dir"

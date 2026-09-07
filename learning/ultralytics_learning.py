@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 from ultralytics import ASSETS, YOLO
 from ultralytics.engine.results import Results
 
-from asuka.config.config import settings
+from asuka.config import settings
 
 # %% [markdown]
 # [ultralytics](https://github.com/ultralytics/ultralytics)

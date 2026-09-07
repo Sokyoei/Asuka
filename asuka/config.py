@@ -51,3 +51,5 @@ else:
 
 
 settings = get_settings()
+
+__all__ = ["settings"]

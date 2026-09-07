@@ -3,7 +3,7 @@ import cv2
 from asuka.camera.handler import SaveHandler
 from asuka.camera.opencv import OpenCVCamera
 from asuka.camera.scheduler import FrameScheduler
-from asuka.config.config import settings
+from asuka.config import settings
 
 
 def test_opencv():

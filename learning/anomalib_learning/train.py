@@ -7,7 +7,7 @@ from anomalib.deploy import ExportType
 from anomalib.engine import Engine
 from anomalib.models import Patchcore
 
-from asuka.config.config import settings
+from asuka.config import settings
 
 # huggingface China mirror
 # os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"

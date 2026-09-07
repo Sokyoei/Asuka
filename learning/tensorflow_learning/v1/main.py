@@ -5,7 +5,7 @@ import tensorflow.contrib as tc
 from loguru import logger
 from tensorflow.examples.tutorials.mnist import input_data
 
-from asuka.config.config import settings
+from asuka.config import settings
 
 # 超参数
 LR = 0.001

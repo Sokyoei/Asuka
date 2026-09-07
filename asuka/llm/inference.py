@@ -2,7 +2,7 @@ import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BatchEncoding, PreTrainedTokenizer
 
-from asuka.config.config import settings
+from asuka.config import settings
 from asuka.utils import DEVICE
 
 BASE_MODEL = settings.MODELS_DIR / "your_local_model_dir"

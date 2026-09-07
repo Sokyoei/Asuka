@@ -12,7 +12,7 @@ FORMATTER = (
 
 
 def init_logging(log_path: Path | None = None):
-    from asuka.config.config import settings
+    from asuka.config import settings
 
     logger.remove(handler_id=None)
     logger.add(sys.stderr, format=FORMATTER, colorize=True)

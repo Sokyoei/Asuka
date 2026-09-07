@@ -14,7 +14,7 @@ else:
 
 import matplotlib.pyplot as plt
 
-from asuka.config.config import settings
+from asuka.config import settings
 
 # 超参数
 EPOCHS = 20
