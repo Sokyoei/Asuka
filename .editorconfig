@@ -42,5 +42,8 @@ tab_width = 4
 [*.{yaml,yml,clang-format,clang-tidy,clangd}]
 indent_size = 2
 
-[package.json]
+[{package,tsconfig,jsconfig,biome}.json]
+indent_size = 2
+
+[*.{html,css,js,ts,json,vue,jsx,tsx,yml,yaml,mjs,cjs,mts,cts}]
 indent_size = 2
