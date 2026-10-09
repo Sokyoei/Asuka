@@ -1,0 +1,6 @@
+"""
+DeepSORT
+
+SeeAlso:
+- [Simple Online and Realtime Tracking with a Deep Association Metric](https://arxiv.org/abs/1703.07402)
+"""
