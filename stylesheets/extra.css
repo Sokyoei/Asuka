@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5)),
+        url("../images/偶像歌手 阿狸 极地雪莲.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+[data-md-color-scheme="sokyoei"] {
+    --md-primary-fg-color: pink;
+    --md-primary-fg-color--light: pink;
+    --md-primary-fg-color--dark: purple;
+}
