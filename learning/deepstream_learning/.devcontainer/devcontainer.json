@@ -10,6 +10,8 @@
         "--network=host",
         // 授予特权模式
         "--privileged",
+        // 与宿主机共享 IPC 命名空间（解决 X11 MIT-SHM 黑屏）
+        "--ipc=host",
         // 挂载 X11 套接字用于图形界面
         "-v=/tmp/.X11-unix:/tmp/.X11-unix",
         // 容器名称
