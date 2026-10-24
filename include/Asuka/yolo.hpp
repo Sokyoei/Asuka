@@ -7,8 +7,8 @@
  */
 
 #pragma once
-#ifndef AHRI_ASUKA_YOLO_HPP
-#define AHRI_ASUKA_YOLO_HPP
+#ifndef ASUKA_YOLO_HPP
+#define ASUKA_YOLO_HPP
 
 #include <cmath>
 
@@ -18,10 +18,10 @@
 
 #include <opencv2/opencv.hpp>
 
-#include "Ahri/Asuka/opencv_color.hpp"
-#include "Ahri/Ceceilia/utils/logger_utils.hpp"
+#include "Asuka/opencv_color.hpp"
+#include "Ceceilia/utils/logger.hpp"
 
-namespace Ahri::YOLO {
+namespace Asuka::YOLO {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Constants
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -260,7 +260,7 @@ inline std::vector<Result> postprocess_yolov5u(std::vector<float> output,
 inline void plot(cv::Mat& img, std::vector<Result> results) {
     AHRI_LOGGER_DEBUG("Result size: {}", results.size());
     for (auto&& result : results) {
-        cv::Scalar color = Ahri::OpenCV::random_color();
+        cv::Scalar color = Asuka::OpenCV::random_color();
         cv::rectangle(img, result.mapped_box, color, 2);
 
         std::string label = fmt::format("{}: {:.2f}", coco80[result.class_id], result.score);
@@ -287,6 +287,6 @@ private:
     YOLOVersion _yoloversion;
     std::filesystem::path _model_path;
 };
-}  // namespace Ahri::YOLO
+}  // namespace Asuka::YOLO
 
-#endif  // !AHRI_ASUKA_YOLO_HPP
+#endif  // !ASUKA_YOLO_HPP

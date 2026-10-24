@@ -7,23 +7,22 @@
  */
 
 #pragma once
-#ifndef AHRI_ASUKA_OPENCV_UTILS_HPP
-#define AHRI_ASUKA_OPENCV_UTILS_HPP
+#ifndef ASUKA_OPENCV_UTILS_HPP
+#define ASUKA_OPENCV_UTILS_HPP
 
 #include <algorithm>
 #include <chrono>
 #include <cstdlib>
-
-#include "Ahri/Asuka.hpp"
 
 #include <fmt/chrono.h>
 #include <fmt/core.h>
 #include <fmt/std.h>
 #include <opencv2/opencv.hpp>
 
-#include "Ahri/Ceceilia/utils/logger_utils.hpp"
+#include "Asuka.hpp"
+#include "Ceceilia/utils/logger.hpp"
 
-namespace Ahri::OpenCV {
+namespace Asuka::OpenCV {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Macros
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,6 +133,6 @@ private:
 };
 
 using Model = OpenCVDNNModel;
-}  // namespace Ahri::OpenCV
+}  // namespace Asuka::OpenCV
 
-#endif  // !AHRI_ASUKA_OPENCV_UTILS_HPP
+#endif  // !ASUKA_OPENCV_UTILS_HPP

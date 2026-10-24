@@ -7,10 +7,8 @@
  */
 
 #pragma once
-#ifndef AHRI_ASUKA_ONNX_UTILS_HPP
-#define AHRI_ASUKA_ONNX_UTILS_HPP
-
-#include "config.h"
+#ifndef ASUKA_ONNX_UTILS_HPP
+#define ASUKA_ONNX_UTILS_HPP
 
 #include <algorithm>
 #include <filesystem>
@@ -28,9 +26,9 @@
 #include <opencv2/opencv.hpp>
 #endif
 
-#include "Ahri/Ceceilia/utils/logger_utils.hpp"
+#include "Ceceilia/utils/logger.hpp"
 
-namespace Ahri::ONNX {
+namespace Asuka::ONNX {
 class ONNXRuntimeModel {
 public:
     ONNXRuntimeModel(std::filesystem::path onnx_path) : _onnx_path(onnx_path) {
@@ -130,11 +128,13 @@ namespace Samples {
 struct AhriNetResult {};
 
 class AhriNet : public ONNXRuntimeModel {
+#ifdef ASUKA_USE_OPENCV
     cv::Mat& preprocess(cv::Mat& input_image) {}
+#endif
 
     std::vector<AhriNetResult> postprocess(std::vector<Ort::Value>& outputs) {}
 };
 }  // namespace Samples
-}  // namespace Ahri::ONNX
+}  // namespace Asuka::ONNX
 
-#endif  // !AHRI_ASUKA_ONNX_UTILS_HPP
+#endif  // !ASUKA_ONNX_UTILS_HPP

@@ -7,14 +7,14 @@
  */
 
 #pragma once
-#ifndef AHRI_ASUKA_OPENCV_COLOR_HPP
-#define AHRI_ASUKA_OPENCV_COLOR_HPP
+#ifndef ASUKA_OPENCV_COLOR_HPP
+#define ASUKA_OPENCV_COLOR_HPP
 
 #include <random>
 
 #include <opencv2/opencv.hpp>
 
-namespace Ahri::OpenCV {
+namespace Asuka::OpenCV {
 #define RED cv::Scalar(0, 0, 255)
 #define GREEN cv::Scalar(0, 255, 0)
 #define BLUE cv::Scalar(255, 0, 0)
@@ -49,6 +49,6 @@ inline cv::Scalar random_color() {
     return cv::Scalar(rng.dis(rng.gen), rng.dis(rng.gen), rng.dis(rng.gen));
 }
 
-}  // namespace Ahri::OpenCV
+}  // namespace Asuka::OpenCV
 
-#endif  // !AHRI_ASUKA_OPENCV_COLOR_HPP
+#endif  // !ASUKA_OPENCV_COLOR_HPP

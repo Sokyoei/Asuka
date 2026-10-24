@@ -1,10 +1,10 @@
 #pragma once
-#ifndef TENSORRT_LEARN_PLUGINS_KERNELS_SWISH_CUH
-#define TENSORRT_LEARN_PLUGINS_KERNELS_SWISH_CUH
+#ifndef TENSORRT_LEARNING_PLUGINS_KERNELS_SWISH_CUH
+#define TENSORRT_LEARNING_PLUGINS_KERNELS_SWISH_CUH
 
 #include <cuda_runtime.h>
 
-#include "Ahri/Asuka/tensorrt_macro.hpp"
+#include "Asuka/tensorrt_macro.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -17,4 +17,4 @@ void swish(const float* inputs, float* outputs, const int elements, cudaStream_t
 }
 #endif
 
-#endif  // !TENSORRT_LEARN_PLUGINS_KERNELS_SWISH_CUH
+#endif  // !TENSORRT_LEARNING_PLUGINS_KERNELS_SWISH_CUH

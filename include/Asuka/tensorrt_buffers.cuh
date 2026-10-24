@@ -40,7 +40,7 @@
 // #include "common.h"
 // #include "half.h"
 
-namespace Ahri::TensorRT {
+namespace Asuka::TensorRT {
 
 template <typename A, typename B>
 inline A divUp(A x, B n) {
@@ -387,6 +387,6 @@ private:
     std::unordered_map<std::string, int32_t> mNames;  //!< The map of tensor name and index pairs
 };
 
-}  // namespace Ahri::TensorRT
+}  // namespace Asuka::TensorRT
 
 #endif  // TENSORRT_BUFFERS_CUH

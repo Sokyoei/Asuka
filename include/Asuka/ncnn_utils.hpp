@@ -7,10 +7,10 @@
  */
 
 #pragma once
-#ifndef AHRI_ASUKA_NCNN_UTILS_HPP
-#define AHRI_ASUKA_NCNN_UTILS_HPP
+#ifndef ASUKA_NCNN_UTILS_HPP
+#define ASUKA_NCNN_UTILS_HPP
 
-namespace Ahri {
+namespace Asuka {
 namespace NCNN {
 class NCNNModel {
 private:
@@ -20,6 +20,6 @@ public:
     ~NCNNModel() {}
 };
 }  // namespace NCNN
-}  // namespace Ahri
+}  // namespace Asuka
 
-#endif  // !AHRI_ASUKA_NCNN_UTILS_HPP
+#endif  // !ASUKA_NCNN_UTILS_HPP

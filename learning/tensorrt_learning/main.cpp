@@ -2,8 +2,6 @@
 #include <string>
 #include <vector>
 
-#include "Ahri/Asuka.hpp"
-
 #ifdef _WIN32
 #include <Windows.h>
 #elif defined(__linux__)
@@ -20,21 +18,22 @@
 #include <opencv2/opencv.hpp>
 #endif
 
-#include "Ahri/Ceceilia/utils/loadlibrary.hpp"
-#include "Ahri/Asuka/opencv_utils.hpp"
-#include "Ahri/Asuka/tensorrt_utils.hpp"
-#include "Ahri/Asuka/yolo.hpp"
+#include "Asuka.hpp"
+#include "Asuka/opencv_utils.hpp"
+#include "Asuka/tensorrt_utils.hpp"
+#include "Asuka/yolo.hpp"
+#include "Ceceilia/utils/loadlibrary.hpp"
 
 void yolov5_example() {
-    auto model = Ahri::TensorRT::TensorRTModel(std::filesystem::path(ASUKA_ROOT) / "models/yolov5su.onnx");
+    auto model = Asuka::TensorRT::TensorRTModel(std::filesystem::path(ASUKA_ROOT) / "models/yolov5su.onnx");
     cv::Mat img = cv::imread((std::filesystem::path(ASUKA_ROOT) / "images/bus.jpg").string());
-    auto preprocess_img = Ahri::YOLO::preprocess(img);
+    auto preprocess_img = Asuka::YOLO::preprocess(img);
     model.build();
     // std::exit(1);
     model.initialize_engine();
     std::vector<float> outputs = model.inference(preprocess_img);
-    auto results = Ahri::YOLO::postprocess_yolov5u(outputs, img.cols, img.rows, 80, 0.25f, 0.7f);
-    Ahri::YOLO::plot(img, results);
+    auto results = Asuka::YOLO::postprocess_yolov5u(outputs, img.cols, img.rows, 80, 0.25f, 0.7f);
+    Asuka::YOLO::plot(img, results);
     IMG_SHOW(img, "TensorRT YOLOv5su Example", cv::WINDOW_FREERATIO);
 }
 
@@ -42,10 +41,10 @@ void yolov5_example() {
  * @brief AhriNet example is a simple TensorRT plugin example
  */
 void ahrinet_example() {
-    initLibNvInferPlugins(&Ahri::TensorRT::trtlogger, "");
+    initLibNvInferPlugins(&Asuka::TensorRT::trtlogger, "");
 
     // Load plugin DLL
-    Ahri::AhriLoadLibrary ahri_plugin_tensorrt{"ahri_plugin_tensorrt"};
+    Ceceilia::AhriLoadLibrary ahri_plugin_tensorrt{"ahri_plugin_tensorrt"};
 
     std::vector<float> input_host{
         0.7576, 0.2793, 0.4031, 0.7347, 0.0293,  //
@@ -56,7 +55,8 @@ void ahrinet_example() {
     };
     fmt::println("Input: {}", input_host);
 
-    auto model = Ahri::TensorRT::TensorRTModel(std::filesystem::path(ASUKA_ROOT) / "tensorrt_learn/ahrinet.onnx");
+    auto model =
+        Asuka::TensorRT::TensorRTModel(std::filesystem::path(ASUKA_ROOT) / "learning/tensorrt_learning/ahrinet.onnx");
     model.build();
     std::vector<float> result = model.infer(input_host);
 

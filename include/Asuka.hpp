@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-namespace Ahri {
+namespace Asuka {
 inline std::string _get_sokyoei_data_dir() {
     auto const SOKYOEI_DATA_DIR = std::getenv("SOKYOEI_DATA_DIR");
     if (SOKYOEI_DATA_DIR) {
@@ -26,8 +26,8 @@ inline std::string _get_sokyoei_data_dir() {
 }
 
 static auto const SOKYOEI_DATA_DIR = _get_sokyoei_data_dir();
-}  // namespace Ahri
+}  // namespace Asuka
 
-#define SOKYOEI_DATA_DIR Ahri::SOKYOEI_DATA_DIR
+#define SOKYOEI_DATA_DIR Asuka::SOKYOEI_DATA_DIR
 
 #endif  // !ASUKA_HPP

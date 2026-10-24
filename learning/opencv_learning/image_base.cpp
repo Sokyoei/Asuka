@@ -2,7 +2,7 @@
 
 #include <opencv2/opencv.hpp>
 
-#include "Ahri/Asuka.hpp"
+#include "Asuka.hpp"
 
 int main(int argc, char const* argv[]) {
     // auto img_path = (std::filesystem::path(SOKYOEI_DATA_DIR) / "Ahri/Popstar Ahri.jpg").string();

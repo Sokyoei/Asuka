@@ -1,6 +1,6 @@
 #pragma once
-#ifndef AHRI_ASUKA_TENSOR_QUANT_HPP
-#define AHRI_ASUKA_TENSOR_QUANT_HPP
+#ifndef ASUKA_TENSORRT_QUANT_HPP
+#define ASUKA_TENSORRT_QUANT_HPP
 
 #include <NvInfer.h>
 
@@ -13,13 +13,13 @@
 /// TensorRT 10.1+
 /// Explicit Quantization
 
-namespace Ahri::TensorRT {
+namespace Asuka::TensorRT {
 class Int8EntropyCalibrator : public nvinfer1::IInt8EntropyCalibrator2 {
 private:
 public:
     Int8EntropyCalibrator() {}
     ~Int8EntropyCalibrator() {}
 };
-}  // namespace Ahri::TensorRT
+}  // namespace Asuka::TensorRT
 
-#endif  // !AHRI_ASUKA_TENSOR_QUANT_HPP
+#endif  // !ASUKA_TENSORRT_QUANT_HPP

@@ -11,8 +11,8 @@
 
 #include <opencv2/opencv.hpp>
 
-#include "Ahri/Asuka.hpp"
-#include "Ahri/Asuka/opencv_utils.hpp"
+#include "Asuka.hpp"
+#include "Asuka/opencv_utils.hpp"
 
 namespace Ahri {
 void erode(cv::Mat& img) {

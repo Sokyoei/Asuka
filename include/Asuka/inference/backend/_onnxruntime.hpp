@@ -1,0 +1,7 @@
+#pragma once
+#ifndef ASUKA_INFERENCE_BACKEND__ONNXRUNTIME_HPP
+#define ASUKA_INFERENCE_BACKEND__ONNXRUNTIME_HPP
+
+#include <onnxruntime_cxx_api.h>
+
+#endif // !ASUKA_INFERENCE_BACKEND__ONNXRUNTIME_HPP

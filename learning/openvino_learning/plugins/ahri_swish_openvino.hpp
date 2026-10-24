@@ -8,7 +8,7 @@
 #include <openvino/openvino.hpp>
 #include <openvino/opsets/opset.hpp>
 
-namespace Ahri::OpenVINO::Plugin {
+namespace Asuka::OpenVINO::Plugin {
 inline namespace V1 {
 template <typename T>
 void swish_kernel(const T* input, T* output, size_t count) {
@@ -72,6 +72,6 @@ public:
 private:
 };
 }  // namespace V1
-}  // namespace Ahri::OpenVINO::Plugin
+}  // namespace Asuka::OpenVINO::Plugin
 
 #endif  // !AHRI_SWISH_OPENVINO_HPP

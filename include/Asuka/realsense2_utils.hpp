@@ -1,11 +1,11 @@
 #pragma once
-#ifndef AHRI_ASUKA_REALSENSE2_UTILS_HPP
-#define AHRI_ASUKA_REALSENSE2_UTILS_HPP
+#ifndef ASUKA_REALSENSE2_UTILS_HPP
+#define ASUKA_REALSENSE2_UTILS_HPP
 
 #include <fmt/core.h>
 #include <librealsense2/rs.hpp>
 
-namespace Ahri::RealSense2 {
+namespace Asuka::RealSense2 {
 inline int check_device() {
     rs2::context ctx;
     rs2::device_list devices = ctx.query_devices();
@@ -30,6 +30,6 @@ inline int check_device() {
         return EXIT_SUCCESS;
     }
 }
-}  // namespace Ahri::RealSense2
+}  // namespace Asuka::RealSense2
 
-#endif  // !AHRI_ASUKA_REALSENSE2_UTILS_HPP
+#endif  // !ASUKA_REALSENSE2_UTILS_HPP

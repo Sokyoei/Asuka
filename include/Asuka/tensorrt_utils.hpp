@@ -7,8 +7,8 @@
  */
 
 #pragma once
-#ifndef AHRI_ASUKA_TENSORRT_UTILS_HPP
-#define AHRI_ASUKA_TENSORRT_UTILS_HPP
+#ifndef ASUKA_TENSORRT_UTILS_HPP
+#define ASUKA_TENSORRT_UTILS_HPP
 
 #include <filesystem>
 #include <fstream>
@@ -17,8 +17,6 @@
 #include <memory>
 #include <string>
 #include <vector>
-
-#include "Ahri/Asuka.hpp"
 
 // #ifdef __NVCC__
 #include <NvInfer.h>
@@ -33,14 +31,15 @@
 #endif
 
 #include "Ahri/Ahri.cuh"
-#include "Ahri/Ceceilia/utils/logger_utils.hpp"
-#include "Ahri/Asuka/tensorrt_macro.hpp"
+#include "Asuka.hpp"
+#include "Asuka/tensorrt_macro.hpp"
+#include "Ceceilia/utils/logger.hpp"
 
 #ifndef AHRI_CXX17
 #error "requires compiler has C++17 or later."
 #endif
 
-namespace Ahri::TensorRT {
+namespace Asuka::TensorRT {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Declaration
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -506,7 +505,7 @@ inline void print_network(nvinfer1::INetworkDefinition& network, nvinfer1::ICuda
     extern "C" AHRI_TENSORRT_API nvinfer1::IPluginCreator* create##creator() { \
         return new creator();                                                  \
     }
-}  // namespace Ahri::TensorRT
+}  // namespace Asuka::TensorRT
 
 // #endif  // __NVCC__
-#endif  // !AHRI_ASUKA_TENSORRT_UTILS_HPP
+#endif  // !ASUKA_TENSORRT_UTILS_HPP

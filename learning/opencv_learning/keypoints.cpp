@@ -10,12 +10,11 @@
 #include <iostream>
 #include <vector>
 
-#include "Ahri/Asuka.hpp"
-
 #include <opencv2/features2d.hpp>
 #include <opencv2/opencv.hpp>
 
-#include "Ahri/Asuka/opencv_color.hpp"
+#include "Asuka.hpp"
+#include "Asuka/opencv_color.hpp"
 
 namespace Ahri {
 enum class KeyPointsType {

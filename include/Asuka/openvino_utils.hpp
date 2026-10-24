@@ -7,23 +7,22 @@
  */
 
 #pragma once
-#ifndef AHRI_ASUKA_OPENVINO_UTILS_HPP
-#define AHRI_ASUKA_OPENVINO_UTILS_HPP
+#ifndef ASUKA_OPENVINO_UTILS_HPP
+#define ASUKA_OPENVINO_UTILS_HPP
 
 #include <filesystem>
 #include <memory>
-
-#include "Ahri/Asuka.hpp"
 
 #include <openvino/openvino.hpp>
 #ifdef ASUKA_USE_OPENCV
 #include <opencv2/opencv.hpp>
 #endif
 
-#include "Ahri/Ceceilia/utils/fmt.hpp"
-#include "Ahri/Ceceilia/utils/logger_utils.hpp"
+#include "Asuka.hpp"
+#include "Ceceilia/utils/fmt.hpp"
+#include "Ceceilia/utils/logger.hpp"
 
-namespace Ahri::OpenVINO {
+namespace Asuka::OpenVINO {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Macros
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,8 +142,8 @@ using Model = OpenVINOModel;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace Samples {}  // namespace Samples
-}  // namespace Ahri::OpenVINO
+}  // namespace Asuka::OpenVINO
 
 AHRI_FMT_FORMATTER_OSTREAM(ov::Version);
 
-#endif  // !AHRI_ASUKA_OPENVINO_UTILS_HPP
+#endif  // !ASUKA_OPENVINO_UTILS_HPP

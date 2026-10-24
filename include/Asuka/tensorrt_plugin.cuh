@@ -1,6 +1,6 @@
 #pragma once
-#ifndef AHRI_ASUKA_TENSORRT_PLUGIN_CUH
-#define AHRI_ASUKA_TENSORRT_PLUGIN_CUH
+#ifndef ASUKA_TENSORRT_PLUGIN_CUH
+#define ASUKA_TENSORRT_PLUGIN_CUH
 
 #include <cmath>
 
@@ -12,9 +12,9 @@
 #include <NvInfer.h>
 #include <cuda_runtime.h>
 
-#include "Ahri/Asuka/tensorrt_utils.hpp"
+#include "Asuka/tensorrt_utils.hpp"
 
-namespace Ahri::TensorRT::Plugin {
+namespace Asuka::TensorRT::Plugin {
 /**
  * @brief Sample plugin impl
  */
@@ -229,6 +229,6 @@ private:
 
 REGISTER_TENSORRT_PLUGIN(CustomScalarPluginCreator);
 }  // namespace V2
-}  // namespace Ahri::TensorRT::Plugin
+}  // namespace Asuka::TensorRT::Plugin
 
-#endif  // !AHRI_ASUKA_TENSORRT_PLUGIN_CUH
+#endif  // !ASUKA_TENSORRT_PLUGIN_CUH

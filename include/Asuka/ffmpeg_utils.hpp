@@ -7,10 +7,8 @@
  */
 
 #pragma once
-#ifndef AHRI_FFMPEG_UTILS_HPP
-#define AHRI_FFMPEG_UTILS_HPP
-
-#include "config.h"
+#ifndef ASUKA_FFMPEG_UTILS_HPP
+#define ASUKA_FFMPEG_UTILS_HPP
 
 #include <iostream>
 
@@ -28,7 +26,7 @@ extern "C" {
 #include <libswscale/swscale.h>
 }
 
-namespace Ahri::FFmpeg {
+namespace Asuka::FFmpeg {
 inline void init_ffmpeg() {
 #if LIBAVCODEC_VERSION_MAJOR < 59
     av_register_all();
@@ -257,6 +255,6 @@ private:
     SwsContext* _sws_context = nullptr;
     int _video_stream_index = -1;
 };
-}  // namespace Ahri::FFmpeg
+}  // namespace Asuka::FFmpeg
 
-#endif  // !AHRI_FFMPEG_UTILS_HPP
+#endif  // !ASUKA_FFMPEG_UTILS_HPP

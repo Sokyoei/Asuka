@@ -4,8 +4,8 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/ximgproc.hpp>
 
-#include "Ahri/Asuka.hpp"
-#include "Ahri/Asuka/opencv_utils.hpp"
+#include "Asuka.hpp"
+#include "Asuka/opencv_utils.hpp"
 
 namespace Ahri {
 void FLD(cv::Mat& img) {

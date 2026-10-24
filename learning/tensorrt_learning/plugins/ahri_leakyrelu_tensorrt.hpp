@@ -11,10 +11,10 @@
 #include <NvInferVersion.h>
 #include <fmt/core.h>
 
-#include "Ahri/Asuka/tensorrt_utils.hpp"
+#include "Asuka/tensorrt_utils.hpp"
 #include "kernels/leakyrelu.cuh"
 
-namespace Ahri::TensorRT::Plugin {
+namespace Asuka::TensorRT::Plugin {
 static constexpr const char* leakyrelu_plugin_name{"AhriLeakyReLU"};
 static constexpr const char* leakyrelu_plugin_namespace{""};
 static constexpr const char* leakyrelu_plugin_version{"1"};
@@ -388,6 +388,6 @@ private:
 
 // AHRI_REGISTER_TENSORRT_PLUGIN(AhriLeakyReLUPluginCreator);
 REGISTER_TENSORRT_PLUGIN(AhriLeakyReLUPluginCreator);
-}  // namespace Ahri::TensorRT::Plugin
+}  // namespace Asuka::TensorRT::Plugin
 
 #endif  // !AHRI_LEAKYRELU_TENSORRT_HPP

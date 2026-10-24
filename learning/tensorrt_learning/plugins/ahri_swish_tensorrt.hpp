@@ -11,10 +11,10 @@
 #include <NvInferVersion.h>
 #include <fmt/core.h>
 
-#include "Ahri/Asuka/tensorrt_utils.hpp"
+#include "Asuka/tensorrt_utils.hpp"
 #include "kernels/swish.cuh"
 
-namespace Ahri::TensorRT::Plugin {
+namespace Asuka::TensorRT::Plugin {
 static constexpr const char* swish_plugin_name{"AhriSwish"};
 static constexpr const char* swish_plugin_namespace{""};
 static constexpr const char* swish_plugin_version{"1"};
@@ -334,6 +334,6 @@ private:
 
 // AHRI_REGISTER_TENSORRT_PLUGIN(AhriSwishPluginCreater);
 REGISTER_TENSORRT_PLUGIN(AhriSwishPluginCreater);
-}  // namespace Ahri::TensorRT::Plugin
+}  // namespace Asuka::TensorRT::Plugin
 
 #endif  // !AHRI_SWISH_TENSORRT_HPP

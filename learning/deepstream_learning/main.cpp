@@ -38,7 +38,7 @@ constexpr auto SUPPORT_URI_PREFIXES = {"rtsp://", "http://", "https://", "file:/
 // Logger
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
- * @see https://github.com/Sokyoei/Ceceilia/blob/master/include/Ahri/Ceceilia/utils/logger_utils.hpp
+ * @see https://github.com/Sokyoei/Ceceilia/blob/master/include/Ceceilia/utils/logger.hpp
  */
 #define COLOR_GREEN "\033[32m"
 #define COLOR_CYAN "\033[36m"

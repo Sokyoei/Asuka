@@ -2,8 +2,6 @@
 #ifndef LIBTORCH_UTILS_HPP
 #define LIBTORCH_UTILS_HPP
 
-namespace Ahri {
-
-}  // namespace Ahri
+namespace Asuka {}  // namespace Asuka
 
 #endif  // !LIBTORCH_UTILS_HPP
