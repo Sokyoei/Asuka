@@ -6,15 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Sokyoei's AI/LLM learning and research project containing:
 
-- **Ahri/Asuka/**: Python package
-- **include/Ahri/Asuka/**: C/C++ includes
-- **src/Ahri/Asuka/** : C/C++ source files
+- **asuka/**: Python package
+- **include/Asuka/**: C/C++ includes
+- **src/Asuka/** : C/C++ source files
 - **XXX_learn/** or **learning/** : Learning projects
 
 **Migration Strategy**: Learning projects are experimental. Code in `learning/` and `XXX_learn/` directories may be migrated to main package when useful:
 
-- C++ code -> `include/Ahri/Asuka/` or `src/Ahri/Asuka/`, try use header only
-- Python code -> `Ahri/Asuka/` modules
+- C++ code -> `include/Asuka/` or `src/Asuka/`, try use header only
+- Python code -> `asuka/` modules
 
 ## Environments
 
@@ -43,3 +43,7 @@ Sokyoei's AI/LLM learning and research project containing:
 ## Documentation
 
 Project uses `MkDocs with Material` theme (Chinese documentation). Math formulas use LaTeX. Markdown files in `docs/` directory.
+
+## Checkpoints
+
+每次回答完成在最后一行输出：`苏小樱女皇`
