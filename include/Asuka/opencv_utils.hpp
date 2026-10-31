@@ -12,7 +12,9 @@
 
 #include <algorithm>
 #include <chrono>
+#include <cstddef>
 #include <cstdlib>
+#include <string>
 
 #include <fmt/chrono.h>
 #include <fmt/core.h>
@@ -21,6 +23,7 @@
 
 #include "Asuka.hpp"
 #include "Ceceilia/utils/logger.hpp"
+#include "Ceceilia/utils/size_fmt.hpp"
 
 namespace Asuka::OpenCV {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,6 +91,35 @@ inline void video_show(bool screen, Args&&... args) {
 
     capture.release();
     writer.release();
+}
+
+inline std::string depth2str(int depth) {
+    switch (depth) {
+            // clang-format off
+        case CV_8U:  return "CV_8U";
+        case CV_8S:  return "CV_8S";
+        case CV_16U: return "CV_16U";
+        case CV_16S: return "CV_16S";
+        case CV_32S: return "CV_32S";
+        case CV_32F: return "CV_32F";
+        case CV_64F: return "CV_64F";
+        case CV_16F: return "CV_16F";
+        default:     return "UNKNOW";
+            // clang-format on
+    }
+}
+
+inline void print_mat_info(const cv::Mat& mat) {
+    if (mat.empty()) {
+        AHRI_LOGGER_WARN("Empty Mat!");
+        return;
+    }
+
+    AHRI_LOGGER_DEBUG("Mat type: {}C{}", depth2str(CV_MAT_DEPTH(mat.type())), mat.channels());
+    AHRI_LOGGER_DEBUG("Mat continuous: {}", mat.isContinuous());
+    AHRI_LOGGER_DEBUG("Mat elements: {}x{}={}", mat.cols, mat.rows, mat.total());
+    size_t bytes = mat.total() * mat.elemSize();
+    AHRI_LOGGER_DEBUG("Mat memory: {}({})", bytes, Ceceilia::size_fmt(bytes));
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
