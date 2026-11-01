@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{47941fe2-49ec-41db-ba34-44cc4d032757}</ProjectGuid>
-    <RootNamespace>onnxlearn1</RootNamespace>
+    <RootNamespace>onnxlearning</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{f7567cd9-4776-4105-84ab-5b4406fdc7b8}</ProjectGuid>
-    <RootNamespace>opencvlearn1</RootNamespace>
+    <RootNamespace>opencvlearning</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

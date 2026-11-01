@@ -3,6 +3,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="learning/ffmpeg_learning/ffmpeg_learning.vcxproj" Id="356c3632-93f6-444a-be28-e96fdb382d03" />
+  <Project Path="learning/gstreamer_learning/gstreamer_learning.vcxproj" Id="ff933461-210e-4e69-ad9d-10a94280a88e" />
   <Project Path="learning/onnx_learning/onnx_learning.vcxproj" Id="47941fe2-49ec-41db-ba34-44cc4d032757" />
   <Project Path="learning/opencv_learning/opencv_learning.vcxproj" Id="f7567cd9-4776-4105-84ab-5b4406fdc7b8" />
   <Project Path="learning/openvino_learning/openvino_learning.vcxproj" Id="22c97fee-b82d-4371-85c0-2542fe14b177">

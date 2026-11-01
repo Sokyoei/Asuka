@@ -28,8 +28,12 @@ ij_cmake_indent_size = 4
 ij_c_tag_prefix_of_block_comment = at
 ij_c_tag_prefix_of_line_comment = at
 
-[*.{sln,vcxproj,vcxproj.filters}]
+[*.{sln}]
 end_of_line = crlf
+
+[*.{slnx,vcxproj,vcxproj.filters}]
+end_of_line = crlf
+indent_size = 2
 
 [Makefile]
 indent_style = tab

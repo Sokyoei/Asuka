@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{22c97fee-b82d-4371-85c0-2542fe14b177}</ProjectGuid>
-    <RootNamespace>openvinolearn1</RootNamespace>
+    <RootNamespace>openvinolearning</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
