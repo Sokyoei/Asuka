@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ASUKA_CONSTANTS_H
-#define ASUKA_CONSTANTS_H
+#ifndef ASUKA_VERSION_H
+#define ASUKA_VERSION_H
 
 // Project infomation
 #define AHTHOR "Sokyoei"
@@ -10,4 +10,4 @@
 #define ASUKA_VERSION_PATCH "1"
 #define ASUKA_VERSION ASUKA_VERSION_MAJOR "." ASUKA_VERSION_MINOR "." ASUKA_VERSION_PATCH
 
-#endif  // !ASUKA_CONSTANTS_H
+#endif  // !ASUKA_VERSION_H
